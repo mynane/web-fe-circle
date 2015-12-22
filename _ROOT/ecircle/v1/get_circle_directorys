@@ -1,0 +1,102 @@
+{
+    "meta": {
+        "code": 200,
+        "message": "请求成功"
+    },
+    "data": {
+        "dynamics": [
+            {
+                "company_id": 111,
+                "icon": "test",
+                "star": true,
+                "attention": false,
+                "friend": false,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            },
+            {
+                "company_id": 122,
+                "icon": "test",
+                "star": true,
+                "attention": true,
+                "friend": false,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            },
+            {
+                "company_id": 133,
+                "icon": "test",
+                "star": true,
+                "attention": false,
+                "friend": false,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            },
+            {
+                "company_id": 144,
+                "icon": "test",
+                "star": true,
+                "attention": true,
+                "friend": false,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            },
+            {
+                "company_id": 155,
+                "icon": "test",
+                "star": true,
+                "attention": true,
+                "friend": true,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            },
+            {
+                "company_id": 166,
+                "icon": "test",
+                "star": true,
+                "attention": true,
+                "friend": true,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            },
+            {
+                "company_id": 177,
+                "icon": "test",
+                "star": true,
+                "attention": false,
+                "friend": false,
+                "title": "====",
+                "address": "====",
+                "profession": "====",
+                "type": "=====",
+                "server": "1"
+            }
+        ],
+        "page_info": {
+            "last_id": "0",
+            "page": 2,
+            "number": 10,
+            "build_no": 0,
+            "other_cid": null,
+            "verified": false
+        }
+    }
+}

@@ -1,0 +1,154 @@
+<!-- target:dynamic-list -->
+<!-- var :dynamics=${dynamicList.dynamics}||${dynamicList} -->
+<!-- if:${noDynamic} -->
+     <div class="load-more" style="text-align:center;" id="no-dynamic"><i class="i icon_warning"></i> <span>暂无动态</span></div>
+<!-- else -->
+     <!-- for:${dynamics} as ${item},${index} -->
+		<li class="clearfix dynamic-item item-wrap" dynamicid="${item.dynamic_id}" companyid="${item.company_id}">
+		   <!-- import:dynamic-item -->
+		<!-- /for -->
+		<!-- if:${dynamics.length} < ${count} && !${firstAll}-->
+		<div class="dynamic-item all-content" style="text-align:center;">已加载全部内容</div>
+		<!-- /if -->
+		<!-- if:${firstAll} && ${dynamics.length}>0-->
+		<div class="dynamic-item all-content" style="text-align:center;">已加载全部内容</div>
+		<!-- /if -->
+<!-- /if -->
+<!-- target:new-dynamic -->
+<li class="clearfix dynamic-item item-wrap first-item" dynamicid="${item.dynamic_id}" companyid="${item.company_id}">
+<!-- import:dynamic-item -->
+
+<!-- target:dynamic-item -->
+  <!-- if:${isCompanyDetail}-->
+    <!-- if:${item.publisher_photo} -->
+	<div class="dynamic-item-avatar va-wrapper">
+	        <div class="va"></div>
+	        <img class="img_middle vertical-middle" src="/ecircle/ecircle/v1/showphoto?userId=${item.publisher_id}" />
+	</div>
+	<!-- else -->
+	<div class="dynamic-item-avatar">
+	        <div class="va"></div>
+	        <img src="css/img/logo48.png" class="img_middle vertical-middle">
+	</div>
+	<!-- /if -->
+<!-- else -->
+	<!-- if:${item.icon} == "true"-->
+	<div class="dynamic-item-avatar item-avatar va-wrapper">
+	    <a href="#company~id=${item.company_id}" target="_blank" class="va-wrapper item-avatar">
+	        <div class="va"></div>
+	        <img class="img_middle vertical-middle item-avatar" src="/ecircle/ecircle/v1/show?companyId=${item.company_id}" />
+	    </a>
+	    <!-- if:${item.star}==2 -->
+	    <i class="icon-star"></i>
+	    <!-- /if -->
+	</div>
+	<!-- else -->
+	<div class="dynamic-item-avatar item-avatar">
+	    <a href="#company~id=${item.company_id}" target="_blank" class="va-wrapper item-avatar">
+	        <div class="va"></div>
+	        <img src="css/img/logo48.png" class="img_middle vertical-middle item-avatar">
+	    </a>
+	</div>
+	<!-- /if -->
+<!-- /if -->
+
+<div class="dynamic-item-content border">
+     <!-- if:${item.is_delete} && !${isdetail} -->
+	    <i class="icon-list-select"></i>
+	    <ul class="delete-oper">
+	        <li class="delete-dynamic">删除动态</li>
+	        <!-- if:${isRegulate} == "all" -->
+	          <li class="disable-dynamic">屏蔽动态</li>
+	        <!-- /if -->
+	        <!-- if:${isRegulate} == "disable" -->
+	          <li class="active_dynamic">解除屏蔽</li>
+	        <!-- /if -->
+	    </ul>
+       <!--/if-->
+	<!-- if:${isCompanyDetail} -->
+	    <span>${item.publisher}</span>
+        <p class="text-gray">
+        <span title="${item.company}">${item.company}</span>
+	<!-- else -->
+        <h4 class="company-name"><a href="#company~id=${item.company_id}" target="_blank" >${item.company}</a></h4>
+        <p class="text-gray">
+        <span title="${item.first_name|hangye(${item.second_name},${item.province_name},${item.city_name})}" class="text-gray-hover dynamic-company-area">${item.first_name|hangye(${item.second_name},${item.province_name},${item.city_name})}</span>
+    <!--/if-->
+    <!-- if:${item.first_name}!=null||${item.second_name}!=null||${item.province_name}!=null||${item.city_name}!=null -->
+    <span class="date"> - </span>
+    <!--/if-->
+    <!-- if:${isdetail} -->
+        <span class="date">${item.date | publish-time}</span>
+    <!-- else -->
+        <a target="_blank" href="#dynamic_detail~dynamicId=${item.dynamic_id}~companyId=${item.company_id}" class="publish-time">
+            <span class="date text-gray-hover">${item.date | publish-time}</span>
+        </a>
+    <!--/if-->
+    </p>
+    <p class="dynamic-item-text" more="${item.text}">
+        <!-- if:!${isdetail} -->
+        ${item.text | html | threeLine}
+        <!-- else -->
+        ${item.text | html}
+        <!-- /if -->
+    </p>
+    <!-- if :${item.page_dynamic_files.length}>1 -->
+    <div class="dynamic-img-wrap">
+        <!-- for:${item.page_dynamic_files} as ${img} -->
+        <div class="dynamic-img img-wrap">
+            <img src="${img.dfs_path}" big="${img.big_path}" origin="${img.original_path}">
+        </div>
+        <!-- /for -->
+    </div>
+    <!-- elif:${item.page_dynamic_files.length}==1 -->
+    <div class="dynamic-img-wrap">
+        <!-- for:${item.page_dynamic_files} as ${img} -->
+        <div class="singal-img img-wrap">
+            <img src="${img.dfs_path}" big="${img.big_path}" origin="${img.original_path}">
+        </div>
+        <!-- /for -->
+    </div>
+    <!-- else -->
+    <!-- /if -->
+</div>
+<ul class="clearfix comment-oper-list text-gray">
+	<!-- if:${item.is_praise} -->
+    <li class="layout-left praise-oper praise-already">
+    <!-- else -->
+    <li class="layout-left praise-oper">
+	<!-- /if -->    
+        <!-- if:${item.is_praise} -->
+        <i class="icon-up-active vertical-middle"></i>
+        <span class="vertical-middle mid_text">已赞</span>
+	    <!-- else -->
+        <i class="icon-up vertical-middle"></i>
+        <span class="vertical-middle mid_text">赞</span>
+	    <!-- /if -->
+        <span class="none"><i class="i icon_like_active"></i>+1</span>
+	    <span class="vertical-middle mid_count">${item.praise}</span>
+    </li>
+    <li class="layout-left comment-oper">
+        <i class="icon-comment vertical-middle"></i>
+        <span class="vertical-middle">评论</span>
+        <span class="vertical-middle comment-count">${item.review}</span>
+    </li>
+    <li class="layout-left share-btn">
+        <span>
+            <i class="icon-share vertical-middle"></i>
+            <span class="vertical-middle">分享</span>    
+        </span>
+        <div class="custom_sharebuttonbox" data-tag="share_1" style="">
+            <a class="bds_sqq" data-cmd="sqq" href="javascript:void(0)"></a>
+            <a class="bds_tsina" data-cmd="tsina" href="javascript:void(0)"></a>
+            <a class="bds_weixin" data-cmd="weixin" href="javascript:void(0)"></a>
+            <a class="bds_qzone" data-cmd="qzone" href="javascript:void(0)"></a>
+        </div>
+        
+    </li>
+    <li class="layout-left share-ctrl" >
+    </li>
+</ul>
+<ul class="comment-list" style="display:none;border-top:1px solid #eee;" page="1">
+</ul>
+</li>
+

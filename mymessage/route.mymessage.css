@@ -1,0 +1,138 @@
+@import (less) "../_ROOT/common.less";
+.content .message-box {
+    background-color: #fff;
+    padding: 0;
+}
+.mymessage-tab-title {
+    height: 40px;
+    border-bottom: 1px solid #eee;
+    padding: 0 16px;
+    .tab-item {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-bottom: 2px solid transparent;
+        color: #999;
+        margin-right: 24px;
+    }
+    .tab-focus {
+        border-bottom-color: #2299ee;
+        color: #666;
+    }
+}
+.comments-list {
+    padding: 0 16px;
+    .comment-item {
+        position: relative;
+        margin-top: 0;
+        *zoom: 1;
+        padding: 16px 0;
+        border-bottom: 1px solid #eee;
+        .avatar {
+            position: absolute;
+            left: 0;
+            top: 16px;
+            border: 1px solid #e6e6e6;
+        }
+        .article_item_wrap {margin-left: 38px;}
+    }
+    .title-info {
+        font-size: 12px;
+        color: #ccc;
+        .user {
+            color: #333;
+        }
+        .company {
+            color: #949799;
+            max-width: 490px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            -ms-word-break: keep-all;
+            word-break: keep-all;
+            white-space: nowrap;
+            .inline-block();
+        }
+        .company_meta {
+            padding-top: 2px;
+            a,span {
+                vertical-align: middle;
+                line-height: 16px;
+            }
+        }
+        .icon-list-select {
+            position: static;
+        }
+        .title-right {
+            position: relative;
+            .delete-oper {
+                right: -8px;
+                top:20px;
+            }
+        }
+    }
+    .comment-content {
+        padding-bottom: 16px;
+        padding-top: 8px;
+        color: #333;
+        word-wrap: break-word;
+        word-break:break-all;
+        -ms-word-break:break-all;
+    }
+    .comment-parent {
+        background-color: #f5f5f5;
+        padding: 16px;
+        .date {
+            color: #999;
+            .company_name {color: #333;}
+        }
+        blockquote {
+            padding: 0;
+            margin: 0;
+            margin-top: 16px;
+            color: #999;
+        }
+    }
+}
+
+.dialog {
+    .dialog-title {
+        border-bottom: 1px solid #eee;
+        padding: 0 16px;
+        line-height: 40px;
+        color: #666;
+    }
+    .dialog_body {
+        padding: 16px;
+        min-height: 100px;
+    }
+    .dialog_foot {
+        text-align: right;
+        /*padding: 16px;*/
+    }
+}
+.delcomment {
+    .strong {
+        font-size: 14px;
+        color: #333;
+    }
+}
+.loading {
+    text-align: center;
+    margin: 16px 0;
+    img {margin: auto;}
+}
+i.icon_quote {
+    background-repeat: no-repeat;
+    background-position: -64px -48px;
+    width: 16px;
+    height: 16px;
+}
+.tips_content {
+    .inline-block();
+    margin: auto;
+    .strong {
+        margin-left: 16px;
+        line-height: 32px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,168 @@
+<!-- target:company -->
+<!-- import: company_left -->
+<div class="center-content  layout-left">
+    <div class="company_infos box-item">
+        <div class="company_profile">
+            <div class="title">企业资料</div>
+            <ul class="info_list">
+                    <li class="info_item">
+                        <span class="info_title">企业简介 : </span>
+                        <span class="info_content">${company.summary|html|hasData}</span>    
+                    </li>
+                    <li class="info_item">
+                        <span class="info_title">行业 : </span>
+                        <span class="info_content">${company.first_name|html|hasData} ${company.second_name}</span>
+                    </li>
+                    <li class="info_item">
+                        <span class="info_title">地区 : </span>
+                        <span class="info_content">${company.province_name|html|hasData} ${company.city_name}</span>
+                    </li>
+                    <!-- <li class="info_item">
+                        <span class="info_title">企业类型 : </span>
+                        <span class="info_content">${company.type_name|html|hasData}</span>
+                    </li> -->
+                    <li class="info_item">
+                        <span class="info_title">服务内容 : </span>
+                        <span class="info_content">${company.server|html|hasData}</span>
+                    </li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div class="company_contact">
+            <div class="title">联系方式</div>
+            <ul class="company-info-list info_list">
+                <!-- <li class="info_item">
+                    <div class="middle-helper"></div>
+                    <span class="mid_text info_title">地址 : </span>
+                    <span class="mid_text info_content">${company.address|html|hasData}</span>
+                </li> -->
+                <li class="info_item">
+                    <div class="middle-helper"></div>
+                    <span class="mid_text info_title">电话 : </span>
+                    <span class="mid_text info_content">
+                    <!-- if: ${company.contact_numbers.length} > 0 -->
+                       <!-- for: ${company.contact_numbers} as ${number} -->
+                           ${number|html|hasData}<br />
+                       <!-- /for -->
+                    <!-- else -->
+                        ${company.contact_numbers|html|hasData}
+                    <!-- /if -->
+                    </span>
+                </li>
+                <li class="info_item">
+                    <div class="middle-helper"></div>
+                    <span class="mid_text info_title">联系人 : </span>
+                    <span class="mid_text info_content">${company.contact_person|html|hasData}</span>
+                </li>
+                <li class="info_item">
+                    <div class="middle-helper"></div>
+                    <span class="mid_text info_title">网址 : </span>
+                    <span class="mid_text info_content">
+                        <!-- if: ${company.web_site} -->
+                           <!-- <a target="_blank" href="${company.web_site|hasData}">${company.web_site|html|hasData} <i class="i icon_urllink"></i></a> -->
+                           ${company.web_site|html|hasData}
+                        <!-- else -->
+                           ${company.web_site|html|hasData}
+                        <!-- /if -->
+                    </span>
+                </li>
+                <!-- <li class="info_item">
+                    <div class="middle-helper"></div>
+                    <span class="mid_text info_title">微博 : </span>
+                    <span class="mid_text info_content">
+                        
+                    </span>
+                </li>
+                <li class="info_item">
+                    <div class="middle-helper"></div>
+                    <span class="mid_text info_title">微信 : </span>
+                    <span class="mid_text info_content">
+                        
+                    </span>
+                </li> -->
+            </ul>
+        </div>
+        <div class="company_foot">
+            <!-- if: ${ismine} && ${isSystemAdmin} -->
+            <a href="#company-edit" class="btn large">修改企业资料</a>
+            <!-- /if -->
+        </div>
+    </div>
+
+    <div class="dynamic-content">
+        <div class="new-dynamic dynamic-item" style="display:none;">查看最新的<span>10</span>条企业动态</div>
+        <ul class="dynamic-list" id="dynamic-list" last_id="0" page="0" number="10" build_no="0" vertified="false" >
+            <!-- import:dynamic-list -->
+        </ul>
+        <div class="load_more" id="load_more" style="display: none;">
+            <span>点击查看更多</span> <i class="i icon_ellipsis"></i>
+        </div>
+    </div>
+</div>
+<!-- target:company_left -->
+<div class="company-info layout-left" id="company-info">
+    <!-- import: company-info -->
+    <!-- <div class="widget contact_list" style="border-top: 1px solid #eee;">
+        <div class="widget-title">对外联络人</div>
+        <div class="widget-body">
+            <ul class="simple-user-list">
+                <li class="li">
+                    <div class="avatar"><img src="" alt="" /></div>
+                    <div class="infos">
+                        <div class="userinfo">
+                            <span class="name">王二小</span> 
+                            <span class="duty">经理大人</span>
+                        </div>
+                        <div class="dept">
+                            <span>后勤部</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="line"></div>
+        </div>
+        <div class="widget-foot">
+            <a href="javascript:void(0)">全部联络人…</a>
+        </div>
+    </div>
+    <div class="widget services_list">
+        <div class="widget-title">定制的服务</div>
+        <div class="widget-body">
+            <ul class="simple-user-list">
+                <li class="li wider clearfix">
+                    <div class="avatar"><img src="" alt="" /></div>
+                    <div class="infos">
+                        <div class="userinfo">
+                            <span class="name">到不了用车服务</span> 
+                        </div>
+                        <div class="dept">
+                            <span>神话专车</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="widget guest_list">
+        <div class="widget-title">最近访客</div>
+        <div class="widget-body">
+            <ul class="avatar-list clearfix">
+                <li class="li">
+                    <a href="javascript:" class="avatar"><img src="" alt="" /></a>
+                </li>
+                <li class="li">
+                    <a href="javascript:" class="avatar"><img src="" alt="" /></a>
+                </li>
+                <li class="li">
+                    <a href="javascript:" class="avatar"><img src="" alt="" /></a>
+                </li>
+                <li class="li">
+                    <a href="javascript:" class="avatar"><img src="" alt="" /></a>
+                </li>
+                <li class="li">
+                    <a href="javascript:" class="avatar"><img src="" alt="" /></a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+</div>

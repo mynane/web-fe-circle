@@ -1,0 +1,185 @@
+<!-- target: company-edit -->
+<!-- import: company_left -->
+<div class="center-content  layout-left">
+    <div class="company_edit box-item">
+        <form id="company_edit_form" action="" method="post">
+          <div class="title" style="margin-top:0;">企业资料</div>
+              <ul class="form-wrap">
+                <li class="form-item" ui="type:control;resizable:false;">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">企业简介</div>
+                        <div class="title-right fl tips_or_error hide" id="tip_summary"><i class="i icon_warning"></i><span ui="id:companySummaryLimit">最多输入300个字，已超出<b>0</b>个字</span></div>
+                    </div>
+                    <div class="field-content">
+                        <div class="textarea" style="display: block; padding-right: 16px;">
+                            <textarea name="" style="width:100%" rows="4" id="companySummary" ui="id:companySummary" placeholder="对您的企业进行简单描述..." xvalidater="tip_summary">${company.summary}</textarea>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-item">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">行业</div>
+                    </div>
+                    <div class="field-content col2">
+                        <!-- import: oBusSelect-Options -->
+                        <!-- import: oBusSubSelect-Options -->
+                    </div>
+                </li>
+                <li class="form-item">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">所在地区</div>
+                    </div>
+                    <div class="field-content col2">
+                        <!-- import: ocitySelect-Options -->
+                        <!-- import: ocityquSelect-Options -->
+                    </div>
+                </li>
+                <!-- <li class="form-item">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">企业类型</div>
+                    </div>
+                    <div class="field-content col1">
+                        <div class="selectbox" ui="type:Select;id:oCompanyType;firstSelect:true" data="${company.company_type}"></div>
+                    </div>
+                </li> -->
+                <li class="form-item" ui="type:control;resizable:false;">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">服务内容</div>
+                        <div class="title-right fl tips_or_error hide" id="tip_server">
+                            <i class="i icon_warning"></i><span validate-type="tip">最多可输入<b>50</b>个字，<span>已超出<b>10</b>个字</span></span>
+                        </div>
+                    </div>
+                    <div class="field-content">
+                        <div class="text-input-wrap" style="display: block;">
+                            <input type="text" id="companyServer" ui="id:companyServer" value="${company.server}" placeholder="输入您企业的服务标签，多个请用 “，” 分开...例如：打印机，墨盒" xvalidater="tip_server" />
+                        </div>
+                    </div>
+                </li>
+                <div class="line" style="margin-top: 0px;"></div>
+                <div class="title">联系方式</div>
+                <!-- <li class="form-item" ui="type:control;resizable:false;">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">地址</div>
+                        <div class="tips_or_error hide fl">
+                            <span class=""></span>
+                            <div class="error-info ">
+                                <i class="triangle"></i>
+                                <span class="addDian">您输入的信息有误</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-content">
+                        <div class="text-input-wrap" style="display: block;">
+                            <input type="text" ui="id:oCompnayAddress" value="${company.address}"  />
+                        </div>
+                    </div>
+                </li> -->
+                <li class="form-item" ui="">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">电话</div>
+                        <div class="title-right fl tips_or_error hide" id="tip_phone">
+                            <i class="i icon_warning"></i><span validate-type="tip">请输入数字，长度不能超过<b>20</b></span>
+                        </div>
+                    </div>
+                    <div class="field-content" ui="id:oTel">
+                        <!-- for: ${company.contact_numbers} as ${number},${index} -->
+                        <!-- if: ${index}===0 -->
+                        <div class="tel-row first">
+                        <!-- else -->
+                        <div class="tel-row">
+                        <!-- /if -->
+                            <div class="tel-wrap text-input-wrap short">
+                                <input type="text" class="tel-number inline_block" value="${number}" xvalidater="tip_phone" /> 
+                            </div>
+                                <!-- if: ${index}===${company.contact_numbers.length}-1 && ${company.contact_numbers.length} < 5 -->
+                                <div class="add-wrap inline_block">
+                                    <a href="javascript:void(0)" class="add_btn">
+                                        <i class="i icon_add_circle"></i><span class="mid_text">添加电话</span>
+                                    </a>                                    
+                                </div>
+                                <!-- /if -->
+                            </div>    
+                        <!-- /for -->
+                    </div>
+                </li>
+                <li class="form-item" ui="">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">联系人</div>
+                    </div>
+                    <div class="field-content">
+                        <div class="text-input-wrap short">
+                            <input type="text" ui="id:oCompanyPerson" value="${company.contact_person}" />
+                        </div>
+                    </div>
+                </li>
+                <li class="form-item" ui="">
+                    <div class="field-title-wrap clearfix">
+                        <div class="field-title fl">网址</div>
+                        <div class="title-right fl tips_or_error hide" id="tip_url">
+                            <i class="i icon_warning"></i><span validate-type="tip">不能超过100个字符</span></span>
+                        </div>
+                    </div>
+                    <div class="field-content">
+                        <div class="text-input-wrap short">
+                            <input type="text" id="oCompanyUrl" ui="id:oCompanyUrl" value="${company.web_site}" placeholder="输入您的企业网址..." xvalidater="tip_url" />
+                        </div>
+                    </div>
+                </li>
+                <li class="form-item submit-wrap">
+                    <input type="button" id="companyBack" class="reset btn large mr16" value="取消修改" onclick="ecui.esr.redirect('company~id=my');" /><input type="submit" id="companySubmit" class="btn large primary btn-hover disable" value="提交修改" />
+                </li>
+              </ul>
+        </form>
+    </div>
+</div>
+
+<!-- target:oBusSelect-Options -->
+<!-- 行业 -->
+<div class="selectbox" ui="type:Select;id:oBusSelect;value:${company.first_business}" data="${company.first_business}" style="margin-right: 16px;">
+    <div ui="value:0">请选择</div>
+    <!-- for: ${selectDatas.firstBusiness } as ${b} -->
+    <div ui="value:${b.0}">${b.1}</div>
+    <!-- /for -->
+</div>
+<!-- target:oBusSubSelect-Options -->
+<div ui="ext-esr:businesses@oBusSubBlock;" style="display:inline-block"></div>
+<!-- target:oBusSubBlock -->
+<!-- 二级行业 -->
+<div ui="id:oBusSubSelect;type:select;value:${company.second_business};" class="selectbox">
+    <div ui="value:0">请选择</div>
+    <!-- for: ${businesses } as ${b} -->
+    <div ui="value:${b.0}">${b.1}</div>
+    <!-- /for -->
+</div>
+<!-- target:ocitySelect-Options -->
+<!-- <div>所在地区</div> -->
+<div ui="id:ocitySelect;type:select;value:${company.province_code};" class="selectbox mr16">
+    <div ui="value:0">请选择</div>
+    <!-- for: ${selectDatas.provices } as ${p} -->
+    <div ui="value:${p.0}">${p.1}</div>
+    <!-- /for -->
+</div>
+<!-- target:ocityquSelect-Options -->
+<div ui="ext-esr:cities@ocityquSelectBlock;" style="display:inline-block"></div>
+
+<!-- target:ocityquSelectBlock -->
+<!-- 城市 -->
+<div ui="id:ocityquSelect;type:select;value:${company.city_code};" class="selectbox">
+    <!-- if:!${cities.length} -->
+    <div ui="value:0">请选择</div>
+    <!-- /if -->
+    <!-- for: ${cities } as ${c} -->
+    <div ui="value:${c.0}">${c.1}</div>
+    <!-- /for -->
+</div>
+<!-- target:oCompanyType-Options -->
+<!-- <div>企业类型</div> -->
+<div ui="id:oCompanyType;type:select;value:0;" class="selectbox long_block">
+    <div ui="value:0">请选择</div>
+    <div ui="value:8">国有企业</div>
+    <div ui="value:9">私营企业</div>
+    <div ui="value:10">事业单位或社会团体</div>
+    <div ui="value:11">中外合资</div>
+    <div ui="value:12">外商独资</div>
+    <div ui="value:13">其它</div>
+</div>

@@ -1,0 +1,62 @@
+<!-- target:dynamic -->
+<div class="company-info layout-left" id="company-info">
+    <!-- use:company-info -->
+</div>
+<div class="dynamic-content  layout-left">
+    <!-- if:${canPublish}==0 -->
+    <div id="no-access" class="top-tip text-gray no-access" style="display:none;">你没有权限发表动态，请联系管理员<i class="icon-dynamic-close"></i></div>
+    <div class="send-dynamic dynamic-item" id="send-dynamic-input">
+        <form id="send-form">
+            <div class="text-photo" style="position:relative;overflow:hidden;">
+                <textarea name="" class="dynamic-text editable"></textarea>
+                <span class="placeholder">分享您企业的时讯动态、行业经验、企业文化等....</span>
+                    <ul class="upload" ui="id:fileFinder;type:Control" style="display:none">
+                    </ul>
+            </div>
+            <div class="send-btn clearfix">
+                <div class="photo-btn layout-left text-gray" ui="type:Control;id:fileUpload">
+                    <i class="icon-camera vertical-middle"></i>
+                    <span class="vertical-middle">上传图片</span>
+                    <input type="file" accept=".png,.jpg,.jpeg,.bmp" title="只允许上传png，jpg，jpeg，bmp图片类型" multiple="multiple">
+                </div>
+                <div class="layout-right dynamic-text-count-publish">
+                    <p class="text-gray send-dc" ><span>还可以输入<span class="text-count">&nbsp;500&nbsp;</span>个字，</span><span class="img-count">&nbsp;9&nbsp;</span>张图片</p>
+                    <button class="send-dynamic-btn disabled" disabled="true" type="button">发布动态</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- else -->
+    <div id="no-access" class="top-tip text-gray no-access">你没有权限发表动态，请联系管理员<i class="icon-dynamic-close"></i></div>
+    <div class="send-dynamic dynamic-item" id="send-dynamic-input" style="display:none;">
+        <form id="send-form">
+            <div class="text-photo" style="position:relative;">
+                <textarea name="" class="dynamic-text editable"></textarea>
+                <span class="placeholder">分享您企业的时讯动态、行业经验、企业文化等....</span>
+                    <ul class="upload">
+                    </ul>
+            </div>
+            <div class="send-btn clearfix">
+                <button class="layout-left photo-btn text-gray">
+                    <i class="icon-camera vertical-middle"></i>
+                    <span class="vertical-middle">上传图片</span>
+                </button>
+                <div class="layout-right dynamic-text-count-publish">
+                    <p class="text-gray"><span>还可以输入<span class="text-count">&nbsp;500&nbsp;</span>个字，</span><span class="img-count">&nbsp;9&nbsp;</span>张图片</p>
+                    <button class="send-dynamic-btn disabled" disabled="true">发布动态</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /if -->
+    <div class="new-dynamic dynamic-item" style="display:none;">查看最新的<span>10</span>条企业动态</div>
+    <!-- if:${isRegulate} == "all" || ${isRegulate} == "disable"-->
+    <div class="mymessage-tab-title">
+        <a href="#dynamic~type=all" class="tab-item inline_block tab-item1 <!-- if:${isRegulate}=="all" --> tab-focus <!-- /if -->"> 全部动态 </a>
+        <a href="#dynamic~type=disable" class="tab-item inline_block tab-item1 <!-- if:${isRegulate}=="disable" --> tab-focus <!-- /if -->"> 屏蔽的动态 </a>
+    </div>
+    <!-- /if-->
+    <ul class="dynamic-list" id="dynamic-list" last_id="0" page="0" number="10" build_no="0" vertified="false">
+        <!-- use:dynamic-list -->
+    </ul>
+</div>

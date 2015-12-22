@@ -1,0 +1,47 @@
+{
+	"meta": {
+		"code": 200,
+		"message": "请求成功"
+	},
+	"data": {
+		"obj_list": [{
+			"id": 4785,
+			"uid": 2,
+			"user_name": "自己",
+			"company_id": 2,
+			"company_name": "公司名字",
+			"dynamic_id": 23726,
+			"content": "第一条",
+			"deleted": true,
+			"add_time": 1447300265314,
+			"is_mine": true,
+			"status": 0,
+			"page_key": "23726_curr",
+			"dynamic_info": null
+		}, {
+			"id": 4784,
+			"uid": 2,
+			"user_name": "自己",
+			"company_id": 2,
+			"company_name": "公司名字2",
+			"dynamic_id": 23726,
+			"content": "第二条",
+			"deleted": true,
+			"add_time": 1447300259784,
+			"is_mine": true,
+			"status": 0,
+			"page_key": "23726_curr",
+			"dynamic_info": null
+		}],
+		"page_info": {
+			"curr_page": 1,
+			"number": 5,
+			"total": 3,
+			"next_page_count": 0,
+			"min_id": 0,
+			"min_page": null,
+			"max_id": 0,
+			"max_page": null
+		}
+	}
+}

@@ -1,0 +1,18 @@
+<!-- target:my_attention -->
+<div class="directory_list">
+    <div class="list_body">
+        <div class="list_title">我的关注企业</div>
+        <div class="list_content" ui="id:listContent">
+        	<div ui="ext-esr:dynamics@companyDirectoryList;"></div>
+            <div ui="id:noAttention;" style="display:none" class="no_attention">
+                <i class="no_attention_face"></i>
+                <p class="p1">您还没有关注任何企业。</p>
+                <p>根据您的业务需要，查找并关注您感兴趣的企业伙伴。</p>
+                <button ui="id:searchForAttention">立即查找</button>
+            </div>
+        </div>
+    </div>
+	<!-- if:${total}!=0 -->
+    <div id="attentionPage"></div>
+    <!-- /if -->
+</div>

@@ -1,0 +1,125 @@
+<!-- target:companyDirectory -->
+<div class="directory_search">
+    <div id="simpleInputWrapper" class="simple-input-wrapper">
+        <span class="search-btn va-wrapper">
+            <div class="va"></div><i class="icon-search vertical-middle"></i>
+        </span><input ui="id:simpleSearchInput" class="simple_search" placeholder="请输入企业或服务关键字">
+    </div><button class="go_search" ui="id:simpleSearch">搜索</button><button class="senior_search" ui="id:seniorSearch">高级搜索</button>
+</div>
+<div class="directory_list">
+    <div class="list_body">
+        <div class="list_title">企业名录</div>
+        <div class="list_content" ui="id:listContent">
+        </div>
+    </div>
+    <div class="list_load_more no_more" style="display:none" ui="id:noMoreDirectories">没有更多</div>
+    <div class="list_load_more" style="display:none" ui="id:loadMore"><img src="css/img/loading_32@1x.gif" /></div>
+</div>
+<!-- target:companyDirectoryList -->
+<!-- var : len = ${dynamics.length} -->
+<!-- if:${len} > 0 -->
+<!-- for:${dynamics} as ${d}, ${index}-->
+<div class="company_item">
+    <div class="item_content">
+        <div class="item-wrap clearfix" dynamicid="${d.dynamic_id}" companyid="${d.company_id}">
+            <div class="company_img item-avatar">
+                <a target="_blank" href="#company~id=${d.company_id}" class="va-wrapper item-avatar">
+                    <div class="va"></div>
+                    <!-- if:${d.icon} == "true"-->
+                    <img src="/ecircle/ecircle/v1/show?companyId=${d.company_id}" class="img_middle vertical-middle item-avatar" />
+                    <!-- else -->
+                    <img src="css/img/logo48.png" class="img_middle vertical-middle item-avatar">
+                    <!-- /if -->
+                </a>
+                <!-- if:${d.star} ==2 -->
+                <i class="icon-star"></i>
+                <!-- /if -->
+            </div>
+            <div class="company_brief">
+                <div class="company-name" title="${d.title}">
+                    <b class="company-name"><a target="_blank" href="#company~id=${d.company_id}">${d.title}</a></b>
+                </div>
+                <div class="company_info" title="${d.first_name|hangye(${d.second_name},${d.province_name},${d.city_name})}">
+                    ${d.first_name|hangye(${d.second_name},${d.province_name},${d.city_name})}
+                </div>
+            </div>
+            <div class="btn_group">
+                <!-- if:!${d.is_same_company}&&${d.group_type}!=1 -->
+                    <!-- if:!${d.attention} -->
+                    <button class="btn_oper_focus" ui="type:DirectoryOperate;oper:attention;company_id:${d.company_id};id:attention${d.company_id}">关注</button>
+                    <!-- else -->
+                    <button class="btn_oper_focus bg_gray color_black" ui="type:DirectoryOperate;oper:attention;company_id:${d.company_id};id:attention${d.company_id}">取消关注</button>
+                    <!-- /if -->
+                    <!-- if:${type}!='friend' -->
+                        <!-- if:${d.friend} -->
+                        <button class="btn_oper_add bg_white color_gray">已建立好友关系</button>
+                        <!-- else -->
+                        <button class="btn_oper_add bg_gray color_blue" ui="type:DirectoryOperate;oper:add_friend;company_id:${d.company_id};id:addFriend${d.company_id}">加为友好企业</button>
+                        <!-- /if -->
+                    <!-- /if -->
+                <!-- /if -->
+            </div>
+        </div>
+    </div>
+    <!-- if:${type}!='friend'&&${type}!='attention' -->
+    <div class="more_info">
+        <div class="data_info">
+            <span class="color_ccc">动态：</span>
+            <!-- if:${d.dynamic_count} > 10000 -->
+            1万+
+            <!-- else -->
+            ${d.dynamic_count}
+            <!-- /if -->
+            <span class="color_ccc">关注者：</span>${d.attention_count}
+        </div>
+        <div class="company_summary">
+            <!-- if:${d.summary} -->
+            <span class="color_ccc">简介：</span><span title="${d.summary}" class="company-detail">${d.summary}</span>
+            <!-- else -->
+            <span class="color_ccc">简介：未填写</span>
+            <!-- /if -->
+        </div>
+        <div class="company_service">
+            <!-- if:${d.server} -->
+            <span class="color_ccc">服务：</span><span title="${d.server}" class="company-detail">${d.server}</span>
+            <!-- else -->
+            <span class="color_ccc">服务：未填写</span>
+            <!-- /if -->
+        </div>
+    </div>
+    <!-- /if -->
+</div>
+<!-- /for -->
+<!-- else -->
+<div class="company_no_item" style="display:none" ui="id:noSearchResult">
+    <i class="i icon_face_bad"></i>对不起，没有查找到符合您查找条件的结果。
+</div>
+<!-- /if -->
+<!-- target:seniorSearchOption -->
+<div>所属行业</div>
+<div ui="id:selectFirstBusiness;type:select;value:0;" class="select_block margin_right16">
+    <!-- for: ${searchOption.firstBusiness } as ${b} -->
+    <div ui="value:${b.0}">${b.1}</div>
+    <!-- /for -->
+</div>
+<div ui="ext-esr:businesses@secondBusinessBlock;" style="display:inline-block"></div>
+<hr>
+<div>所在地区</div>
+<div ui="id:selectProvince;type:select;value:0;" class="select_block margin_right16">
+    <!-- for: ${searchOption.provices } as ${p} -->
+    <div ui="value:${p.0}">${p.1}</div>
+    <!-- /for -->
+</div>
+<div ui="ext-esr:cities@provinceCitiesBlock;" style="display:inline-block"></div>
+<!-- target:secondBusinessBlock -->
+<div ui="id:selectSecondBusiness;type:select;value:${businesses.0.0};" class="select_block">
+    <!-- for: ${businesses } as ${b} -->
+    <div ui="value:${b.0}">${b.1}</div>
+    <!-- /for -->
+</div>
+<!-- target:provinceCitiesBlock -->
+<div ui="id:selectProvinceCities;type:select;value:${cities.0.0 };" class="select_block">
+    <!-- for: ${cities } as ${c} -->
+    <div ui="value:${c.0}">${c.1}</div>
+    <!-- /for -->
+</div>

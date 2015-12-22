@@ -1,0 +1,9 @@
+/.project
+/css/grunt
+/css/lessdest
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+.settings/

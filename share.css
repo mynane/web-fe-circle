@@ -1,0 +1,94 @@
+.custom_sharebuttonbox .bds_qzone {
+    background-position: -64px -160px;
+}
+.custom_sharebuttonbox .bds_qzone:hover {
+    background-position: -64px -192px;
+}
+
+.custom_sharebuttonbox .bds_tsina {
+    background-position: 0 -160px;
+}
+.custom_sharebuttonbox .bds_tsina:hover {
+    background-position: 0 -192px;
+}
+.custom_sharebuttonbox .bds_fbook {
+    background-position: -96px -160px;
+}
+.custom_sharebuttonbox .bds_fbook:hover {
+    background-position: -96px -192px;
+}
+
+.custom_sharebuttonbox .bds_twi {
+    background-position: -128px -160px;
+}
+.custom_sharebuttonbox .bds_twi:hover {
+    background-position: -128px -192px;
+}
+
+.custom_sharebuttonbox .bds_sqq {
+    background-position: -160px -160px;
+}
+
+.custom_sharebuttonbox .bds_sqq:hover {
+    background-position: -160px -192px;
+}
+
+.custom_sharebuttonbox .bds_weixin {
+    background-position: -32px -160px;
+}
+.custom_sharebuttonbox .bds_weixin:hover {
+    background-position: -32px -192px;
+}
+
+.custom_sharebuttonbox:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.custom_sharebuttonbox a {
+    float: left;
+    font-size: 12px;
+    padding-left: 24px;
+    line-height: 24px;
+    height: 24px;
+    background-image: url(css/img/sprite@1x.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 6px 6px 6px 0;
+}
+
+.bdshare-button-style-15 a:hover {
+    -webkit-transition: background-position 0.2s;
+    -moz-transition: background-position 0.2s;
+    -o-transition: background-position 0.2s;
+    transition: background-position 0.2s;
+}
+
+.custom_sharebuttonbox a:hover {
+    color: #333;
+    opacity: .8;
+    filter: alpha(opacity=80);
+}
+
+.bds_tfh,
+.bds_baidu,
+.bds_qq,
+.bds_msn,
+.bds_sohu,
+.bds_qy,
+.bds_leho,
+.bds_ifeng,
+.bds_ff,
+.bds_tuita,
+.bds_ms,
+.bds_deli,
+.bds_s51,
+.bds_t163,
+.bds_share189,
+.bds_xg,
+.bds_s139 {
+    display: none;
+}

@@ -1,0 +1,295 @@
+{
+    "meta": 
+    {
+        "code": 200,
+        "message": "请求成功"
+    },
+
+    "data": 
+    {
+        "dynamics": 
+        [
+            {
+                "company_id": "10",
+                "icon": "true",
+                "star": 2,
+                "attention": true,
+                "friend": true,
+                "is_praise": false,
+                "create_time": 1447824146466,
+                "date": "1447824146466",
+                "praise": 0,
+                "review": 1,
+                "company": "信力康信公司可罗及刻录机123",
+                "dynamic_id": "23907",
+                "text": "8888",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "超级管理员信不信",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "179@10",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "10",
+                "icon": "true",
+                "star": 2,
+                "attention": true,
+                "friend": true,
+                "is_praise": false,
+                "create_time": 1447824139536,
+                "date": "1447824139536",
+                "praise": 0,
+                "review": 0,
+                "company": "信力康信公司可罗及刻录机123",
+                "dynamic_id": "23906",
+                "text": "123456",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "超级管理员信不信",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "179@10",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "10",
+                "icon": "true",
+                "star": 2,
+                "attention": true,
+                "friend": true,
+                "is_praise": false,
+                "create_time": 1447824083051,
+                "date": "1447824083051",
+                "praise": 0,
+                "review": 0,
+                "company": "信力康信公司可罗及刻录机123",
+                "dynamic_id": "23905",
+                "text": "78\n88",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "超级管理员信不信",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "179@10",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "10",
+                "icon": "true",
+                "star": 2,
+                "attention": true,
+                "friend": true,
+                "is_praise": false,
+                "create_time": 1447824051971,
+                "date": "1447824051971",
+                "praise": 0,
+                "review": 0,
+                "company": "信力康信公司可罗及刻录机123",
+                "dynamic_id": "23904",
+                "text": "777888999",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "超级管理员信不信",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "179@10",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "53025",
+                "icon": "false",
+                "star": 2,
+                "attention": true,
+                "friend": false,
+                "is_praise": false,
+                "create_time": 1447689954006,
+                "date": "1447689954006",
+                "praise": 0,
+                "review": 0,
+                "company": "face16",
+                "dynamic_id": "23859",
+                "text": "4",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "管理员",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "143721@53025",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "53025",
+                "icon": "false",
+                "star": 2,
+                "attention": true,
+                "friend": false,
+                "is_praise": false,
+                "create_time": 1447689758639,
+                "date": "1447689758639",
+                "praise": 0,
+                "review": 0,
+                "company": "face16",
+                "dynamic_id": "23856",
+                "text": "3",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "管理员",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "143721@53025",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "53025",
+                "icon": "false",
+                "star": 2,
+                "attention": true,
+                "friend": false,
+                "is_praise": false,
+                "create_time": 1447689321104,
+                "date": "1447689321104",
+                "praise": 0,
+                "review": 0,
+                "company": "face16",
+                "dynamic_id": "23852",
+                "text": "2",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "管理员",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "143721@53025",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "53025",
+                "icon": "false",
+                "star": 2,
+                "attention": true,
+                "friend": false,
+                "is_praise": false,
+                "create_time": 1447689272796,
+                "date": "1447689272796",
+                "praise": 0,
+                "review": 0,
+                "company": "face16",
+                "dynamic_id": "23851",
+                "text": "2",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "管理员",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "143721@53025",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "53025",
+                "icon": "false",
+                "star": 2,
+                "attention": true,
+                "friend": false,
+                "is_praise": false,
+                "create_time": 1447687806719,
+                "date": "1447687806719",
+                "praise": 0,
+                "review": 0,
+                "company": "face16",
+                "dynamic_id": "23846",
+                "text": "1",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "管理员",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "143721@53025",
+                "curr_page": 0,
+                "build_no": 113
+            },
+
+            {
+                "company_id": "53025",
+                "icon": "false",
+                "star": 2,
+                "attention": true,
+                "friend": false,
+                "is_praise": false,
+                "create_time": 1447687545557,
+                "date": "1447687545557",
+                "praise": 0,
+                "review": 0,
+                "company": "face16",
+                "dynamic_id": "23844",
+                "text": "5",
+                "is_delete": false,
+                "is_same_company": false,
+                "publisher": "管理员",
+                "page_dynamic_files": 
+                [
+                    
+                ],
+
+                "jid": "143721@53025",
+                "curr_page": 0,
+                "build_no": 113
+            }
+        ],
+
+        "page_info": 
+        {
+            "last_id": "23844",
+            "page": 0,
+            "number": 10,
+            "total": 0,
+            "build_no": 113,
+            "other_cid": null,
+            "verified": false,
+            "ratio": null
+        }
+    }
+}

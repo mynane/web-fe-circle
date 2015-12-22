@@ -1,0 +1,10 @@
+{
+	"meta":{
+		"code":200,
+		"message":"查询成功"
+	},
+	"data":[
+		{"src":"css/img/icon.png","name":"康师傅","industry":"餐饮/食品","area":"上海，徐汇","star":2},
+        {"src":"css/img/icon.png","name":"Apple","industry":"电子产品","area":"美国旧金山"}
+    ]
+}

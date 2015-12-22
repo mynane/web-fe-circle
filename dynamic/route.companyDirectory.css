@@ -1,0 +1,377 @@
+@import (less) "../_ROOT/common.less";
+.directory_search {
+    width: 704px;
+    margin-bottom: 8px;
+    height: 32px;
+    padding: 8px;
+    line-height: 32px;
+    font-size: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+    .simple-input-wrapper {
+        height: 30px;
+        border: 1px #e6e6e6 solid;
+        .inline-block();
+        vertical-align: middle;
+        input {
+            border: 0;
+            .inline-block();
+            height: 30px;
+            line-height: 30px;
+            &.simple_search {
+                width: 486px;
+                border-radius: 0;
+                background-color: #fff;
+                padding: 0 8px 0 0;
+                vertical-align: top;
+                *vertical-align: bottom;
+            }
+        }
+        .search-btn {
+            .inline-block();
+            width: 30px;
+            height: 30px;
+            vertical-align: top;
+            background-color: #fff;
+            text-align: center;
+            i {
+                transition: .1s;
+                background-position: -128px 0;
+            }
+        }
+        &:hover {
+            border: 1px #ccc solid;
+        }
+        &.simple-input-wrapper-focus {
+            border: 1px #ccc solid;
+            color: #333;
+            box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .1);
+        }
+    }
+    button {
+        font-size: 12px;
+        width: 80px;
+        height: 32px;
+        padding: 0 8px;
+        vertical-align: middle;
+        &.go_search {
+            margin: 0 8px;
+            &:hover {
+                background: #0a8ae6;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            }
+            &:active {
+                position: relative;
+                top: 1px;
+            }
+        }
+        &.senior_search {
+            background-color: #eee;
+            color: #666;
+            &:hover {
+                color: #333;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            }
+            &:active {
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+}
+
+.directory_list {
+    width: 100%;
+    font-size: 12px;
+    .list_body {
+        background-color: #fff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+        .list_title {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 16px;
+            border-bottom: 1px solid #eee;
+        }
+        .company_no_item {
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            i {
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+        }
+        .color_ccc {
+            color: #ccc;
+        }
+        .color_black {
+            color: #000;
+        }
+        .color_blue {
+            color: #2299ee;
+        }
+        .color_gray {
+            color: #666;
+        }
+        .list_content {
+            .no_attention {
+                text-align: center;
+                height: 300px;
+                margin: 50px 0;
+                .no_attention_face {
+                    background-position: -32px -254px;
+                    width: 34px;
+                    height: 34px;
+                    margin: 0 auto;
+                }
+                .p1 {
+                    color: #3a87de;
+                }
+            }
+            .more_info {
+                padding: 0 0 0 56px;
+                line-height: 20px;
+                color: #949799;
+                .company_summary,
+                .company_service {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .company_summary {
+                    max-width: 560px;
+                    .company-detail{
+                        .text-overflow();
+                        max-width: 520px;
+                        vertical-align: top;
+                    }
+                }
+                .company_service {
+                    max-width: 520px;
+                }
+            }
+            .company_item {
+                border-bottom: 1px solid #eee;
+                margin: 16px 16px 0 16px;
+                /*                height: 132px;
+                *height: 132px;*/
+                .item_content {
+                    /*                    height: 48px;
+                    *height: 48px;*/
+                    .company_img {
+                        float: left;
+                        height: 46px;
+                        width: 46px;
+                        position: relative;
+                        border: 1px solid #eee;
+                        img {
+                            width: 46px;
+                            height: 46px;
+                        }
+                    }
+                    .company_brief {
+                        float: left;
+                        padding: 4px 0 0 8px;
+                        line-height: 20px;
+                        .company_name,
+                        .company_info {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                        div.company-name {
+                            max-width: 296px;
+                            height: 20px;
+                            line-height: 20px;
+                            b a {
+                                .inline-block();
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 100%;
+                                color: #29e;
+                                &:hover {
+                                    color: #01538e;
+                                }
+                            }
+                        }
+                        .company_info {
+                            max-width: 320px;
+                            color: #949799;
+                            span:hover {
+                                color: #666;
+                            }
+                        }
+                    }
+                    .btn_group {
+                        float: right;
+                        line-height: 48px;
+                        margin-right: -2px;
+                        button {
+                            font-size: 12px;
+                            height: 32px;
+                            line-height: 32px;
+                            margin-left: 16px;
+                            padding: 0;
+                            &.btn_oper_focus {
+                                width: 80px;
+                                &:hover {
+                                    background: #0b89e6;
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                                }
+                                &.bg_gray {
+                                    background-color: #ededed;
+                                }
+                            }
+                            &.btn_oper_add {
+                                width: 100px;
+                                &.color_blue:hover {
+                                    color: #333;
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                                }
+                                &.color_gray {
+                                    cursor: default;
+                                }
+                            }
+                        }
+                        .bg_gray {
+                            background-color: #ededed;
+                        }
+                        .bg_white{
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .list_load_more {
+        margin-top: 16px;
+        width: 100%;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        &.no_more {
+            margin-bottom: 16px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+        }
+    }
+}
+
+.ui-dialog .ui-dialog-close {
+    background-position: -77px -161px;
+    height: 16px;
+    right: 16px;
+}
+
+.searchDialog {
+    width: 640px;
+    hr {
+        margin: 16px 0;
+        height: 1px;
+        border: none;
+        border-top: 1px solid #e1e1e1;
+    }
+    &.ui-dialog {
+        .ui-dialog-title {
+            padding: 8px 16px 0 16px;
+        }
+        .ui-dialog-body {
+            padding: 0;
+        }
+    }
+    .search_content {
+        padding: 0 16px;
+        .search_body {
+            .search_box {
+                width: 606px;
+                height: 30px;
+                border: 1px solid #ccc;
+                &.msg_warn {
+                    box-shadow: 0 0 2px #ff6612;
+                    border: 1px solid #ff6612;
+                }
+                &:focus {
+                    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2) inset;
+                }
+                i {
+                    margin: 8px;
+                    vertical-align: middle;
+                }
+                input {
+                    border: none;
+                    width: 90%;
+                    vertical-align: middle;
+                }
+            }
+            .select_icon_area {
+                width: 30px;
+                height: 30px;
+                background-color: #f6f6f6;
+                border-style: solid;
+                border-color: #e6e6e6;
+                border-width: 1px 1px 1px 0;
+                text-align: center;
+                line-height: 30px;
+                display: inline-block;
+                .select_icon_up {
+                    background-position: -70px -64px;
+                    width: 10px;
+                    height: 5px;
+                }
+                .select_icon_down {
+                    background-position: -70px -80px;
+                    width: 10px;
+                    height: 5px;
+                }
+            }
+            .select_block {
+                width: 260px;
+                height: 30px;
+                border: 1px solid #e6e6e6;
+                background-color: #f6f6f6;
+                line-height: 42px;
+                margin-top: 16px;
+                display: inline-block;
+                &:focus {
+                    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2) inset;
+                }
+                &.long_block {
+                    width: 574px;
+                }
+                &.margin_right16 {
+                    margin-right: 16px;
+                }
+            }
+        }
+        .search_footer {
+            height: 40px;
+            .right_btngrp {
+                float: right;
+                button {
+                    width: 80px;
+                    height: 32px;
+                    margin-left: 16px;
+                    padding: 0;
+                    &.cancel {
+                        background-color: #ededed;
+                        color: #999;
+                    }
+                    &:hover {
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                    }
+                    &:active {
+                        position: relative;
+                        top: 1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.directory_list .list_body .list_content .company_item {
+    margin: 0 16px;
+    padding: 16px 0;
+}

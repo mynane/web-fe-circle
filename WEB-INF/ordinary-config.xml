@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ordinary-config version="0.1">
+    <alias>
+        <host class="org.lilystudio.ordinary.web.Host" />
+        <mapping class="org.lilystudio.ordinary.web.Mapping" />
+        <command class="org.lilystudio.ordinary.web.Command" />
+        <capture class="org.lilystudio.ordinary.web.Capture" />
+        <result name="local" class="org.lilystudio.ordinary.web.result.WriteResult" />
+        <result name="proxy" class="org.lilystudio.ordinary.web.result.WriteResult">
+            <default proxy="http://web.test1.com" remote="true" />
+        </result>
+        <action name="list" class="org.lilystudio.ordinary.web.action.ListAction" />
+        <action name="session" class="org.lilystudio.ordinary.web.action.SessionAction" />
+    </alias>
+    <modules>
+        <!--<import-dom name="modules.xml" />-->
+    </modules>
+    <process>
+        <!-- 本地请求入口 -->
+        <host name="localhost">
+            <mapping>
+                <command name="/mgt/workbench/v1/get_board_list">
+                    <session name="user_boards" />
+                    <local />
+                </command>
+            </mapping>
+            <mapping>
+                <command name="/workbench/workbench/rest/v1/update_modules_boards">
+                    <session name="user_boards" />
+                    <local />
+                </command>
+                <command name="/mgt/test/getMarkDays.do">
+                    <local>
+{
+    "meta":{
+        "code": 401,
+        "message": "用户认证失败，需重新登录"
+    },
+    "data":[5,6,7,9,12,13,14,15,19,20,25,27,26]
+}
+                    </local>
+                </command>
+                <command name="/mgt/rest/common/fakelogin">
+                    <local>
+{ "meta":{ "code": 200, "message": ""},
+"data": null
+}
+                    </local>
+                </command>
+                <import-dom name="workbench/get_myfollow.xml" />
+                <import-dom name="workbench/get_mydoc.xml" />
+                <import-dom name="workbench/get_mycontact.xml" />
+            </mapping>
+            <command name="[^.]+">
+                <local />
+            </command>
+        </host>
+        <!-- 远程请求入口 -->
+        <host name=".*">
+            <command name="\/(mgt|module)\/.+">
+                <proxy />
+            </command>
+        </host>
+    </process>
+</ordinary-config>

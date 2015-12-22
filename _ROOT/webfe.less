@@ -1,0 +1,171 @@
+@import (less) "common.less";
+@bodyBg: #edeff0;
+@whiteBg: #fff;
+@font-size-base: 14px;
+@font-family-yahei: "Microsoft Yahei";
+@theme-color: #29e;
+@textColor: #494b4d;
+@gray-base: #000;
+@gray-darker: #333;
+@gray-dark: #666;
+@gray: #999;
+@linkColor: #616366;
+@linkHoverColor: #29e;
+@headerHeight: 62px;
+@border-radius: 2px;
+@light-border: 1px solid #ebeced;
+
+html {
+    background-color: @bodyBg;
+    overflow-y: scroll;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-size: @font-size-base;
+    font-family: "Helvetica", "Tahoma", "Microsoft Yahei",  "Simsun";
+}
+.ie6-out {
+    margin-left: 1002px;
+    zoom: 1;
+}
+.ie6-in {
+    position: relative;
+    float: left;
+    margin-left: -1002px;
+}
+label {
+    .inline-block();
+}
+font {
+    color: red;
+}
+a {
+    text-decoration: none;
+    color: @linkColor;
+    cursor: pointer;
+    outline: none;
+    &:hover {
+        color: @linkHoverColor;
+    }
+}
+ul {
+    margin: 0;
+    li {
+        list-style-type: none;
+    }
+}
+input {
+    outline: none;
+}
+input::-ms-clear {
+    display: none;
+}
+::-webkit-input-placeholder {/* WebKit browsers */
+    color: #a8a8a8;
+    font-family: @font-family-yahei;
+}
+:-moz-placeholder {/* Mozilla Firefox 4 to 18 */
+    color: #a8a8a8;
+    font-family: @font-family-yahei;
+}
+::-moz-placeholder {/* Mozilla Firefox 19+ */
+    color: #a8a8a8;
+    font-family: @font-family-yahei;
+}
+:-ms-input-placeholder {/* Internet Explorer 10+ */
+    color: #a8a8a8;
+    font-family: @font-family-yahei;
+}
+
+#container {
+    min-width: 1002px;
+}
+table.layout {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    tr {
+        td.out-td {
+            background-color: @whiteBg;
+            vertical-align: top;
+            border: 10px solid #eee;
+            border-top: 0;
+        }
+        td.td-right {
+            background-color: @bodyBg;
+        }
+    }
+}
+.main, .worker .apps, .worker .apps-title {
+    min-width: 1002px;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.dialog-shadow {
+    border: 0;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #eee \9;
+}
+/*relogin登录css*/
+.login-form {
+  font-size: 14px;
+}
+.login-form .login-item {
+  padding: 0 6px;
+}
+.login-form .login-item.tip {
+  margin-left:15px;
+  color: #6b696e;
+}
+.login-form .login-item.tip a {
+  color: #3a87de;
+  margin-left: 6px;
+}
+.login-form label {
+  color: #6b696e;
+  font-size: 14px;
+}
+.login-form .input-wrap {
+  margin: 17px 0;
+}
+.login-form .input-wrap input {
+  width: 363px;
+  height: 38px;
+  border: 1px solid #e4e4e4;
+  color: #999;
+  font-size: 14px;
+  line-height: 38px;
+  border-radius: 4px;
+}
+.login-form .input-wrap input:focus {
+  background: #f2f8ff;
+  color: #3a87de;
+  border-color: #3a87de;
+  box-shadow: 0 1px 0 #3a87de,1px 0 0 #3a87de,-1px 0 0 #3a87de,0 -1px 0 #3a87de;
+  -webkit-box-shadow: 0 1px 0 #3a87de,1px 0 0 #3a87de,-1px 0 0 #3a87de,0 -1px 0 #3a87de;
+  -moz-box-shadow: 0 1px 0 #3a87de,1px 0 0 #3a87de,-1px 0 0 #3a87de,0 -1px 0 #3a87de;
+  -ms-box-shadow: 0 1px 0 #3a87de,1px 0 0 #3a87de,-1px 0 0 #3a87de,0 -1px 0 #3a87de;
+  -o-box-shadow: 0 1px 0 #3a87de,1px 0 0 #3a87de,-1px 0 0 #3a87de,0 -1px 0 #3a87de;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+}
+.login-footer{
+	padding: 9px 0;
+    text-align: center;
+}
+.login-footer .resubmit{
+	background-color: #29e;
+    border: medium none;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    outline: medium none;
+    padding: 10px 20px;
+    width: 100px;
+    height:40px;
+}

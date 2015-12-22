@@ -1,0 +1,100 @@
+<!-- target:mymessage -->
+<div class="message-box box-item">
+    <div class="mymessage-tab-title">
+      <a href="#mymessage~type=receive" class="tab-item inline_block tab-item1 <!-- if: ${type}=="receive" -->tab-focus <!-- /if-->" >
+            我收到的评论
+      </a>
+      <a href="#mymessage~type=send" class="tab-item inline_block tab-item1 <!-- if: ${type}=="send" -->tab-focus <!-- /if-->" >
+            我发出的评论
+      </a>
+    </div>
+    <!-- if:${comments.obj_list.length}==0 -->
+    <div style="text-align: center;color:#666;border-top:1px #DDD solid;padding-top:20px;">
+      <!-- if:${type}=="send" -->
+      暂无发出的评论
+      <!-- else -->
+           暂无收到的评论
+      <!-- /if -->
+    </div>
+    <!-- else -->
+    <ul class="comments-list mymessage-tab-detail" id="mymessage-list" last_id="0" page="0" number="5" build_no="0" vertified="false" ui="ext-esr:comments@mymessage-list">
+    </ul>
+    <div id="papging-wrap" class="papging-wrap mymessage"></div>
+    <!-- /if -->
+</div>
+ <!-- if:${comments.obj_list.length}!=0 && ${comments.page_info.curr_page} <=1 -->
+	<div class="load_more" id="load_more" style="">
+	    <span>点击查看更多</span> <i class="i icon_ellipsis"></i>
+	</div>
+ <!-- /if -->
+<div class="load_more" id="loaded_all" style="display:none">
+    已加载所有评论
+</div>
+<!-- target:mymessage-item --> 
+<li class="article_item comment-item">
+    <div class="avatar">
+    	<b class="middler">
+    	</b>
+    	<!-- if:${comment.photo} -->
+              <img class="img_middle" src="/ecircle/ecircle/v1/showphoto?userId=${comment.uid}"/>
+             <!-- else -->
+              <img src="css/img/avatar32.png" class="max">
+        <!-- /if -->
+    </div>
+    <div class="article_item_wrap">
+      <div class="comment-info">
+        <div class="title-info clearfix">
+          <div class="title-left fl">
+            <span class="user">${comment.user_name}</span>
+            <div class="company_meta">
+                <a target="_blank" href="#company~id=${comment.company_id}" class="company">${comment.company_name}</a>                
+                <span class="time">- ${comment.add_time | time}</span>    
+            </div>
+            
+          </div>
+          <!--if: ${type}=="send" && ${comment.deleted} --> 
+            <div class="title-right fr comment-delete-btn">
+                <i class="icon-list-select"></i>
+                <ul class="delete-oper">
+                    <li class="delete-comment" commentid="${comment.id}">删除这条评论</li>
+                </ul>
+            </div>
+          <!-- /if -->
+        </div>
+        <div class="comment-content">
+        	<!--if: ${comment.status} != 1 -->
+        	 ${comment.content|html}
+        	 <!--else-->
+        	  <span class="mid_text3">该评论已经被删除！</span>
+        	<!-- /if -->    
+        </div>
+      </div>
+      <div class="comment-parent">
+          <div class="date">            
+            评论 
+          <!-- if: ${comment.dynamic_info.is_mine}&&${type}=="receive" -->
+          <span class="company_name">您</span>
+          <!-- else -->
+          <a target="_blank" class="company_name" href="#company~id=${comment.dynamic_info.company_id}">${comment.dynamic_info.company_name} </a>
+          <!-- /if -->
+          发布的动态：
+          </div>
+          <!--if: ${comment.status} == 2 || ${comment.dynamic_info.is_delete}-->
+	      	 <blockquote style="cursor: auto;">
+        	 该动态已被删除或屏蔽！
+        	 </blockquote>
+        	 <!--else-->
+        	 <blockquote>
+        	  <a target="_blank" href="#dynamic_detail~dynamicId=${comment.dynamic_info.dynamic_id}~companyId=${comment.dynamic_info.company_id}" style="display: block;">
+	             <i class="icon_quote"></i>
+                 ${comment.dynamic_info.dynamic_content|html}
+	          </a>
+	         </blockquote>
+        	<!-- /if -->
+      </div>
+    </div>
+</li>
+<!-- target:mymessage-list --> 
+<!-- for: ${comments.obj_list} as ${comment} -->
+    <!-- import: mymessage-item -->
+<!-- /for -->

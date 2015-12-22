@@ -1,0 +1,17 @@
+{
+    "meta": {
+        "code": 200,
+        "message": "请求成功"
+    },
+    "data": {
+        "response": {
+            "return_type": 4,
+            "message": "",
+            "manger": false
+        },
+        "detail": {
+            "title": "今目标测试公司",
+            "address": "北京"
+        }
+    }
+}

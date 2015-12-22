@@ -1,0 +1,231 @@
+@import (less) "../_ROOT/common.less";
+/*chrome 去除数字框的上下箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/*firefox 去除数字框的上下箭头*/
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.fl {float: left;}
+.fr {float: right;}
+.fn {float: none;}
+.clb {clear: both;}
+.inline_block {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.form-item {
+    .field-title {
+        color: #949799;
+    }
+    .field-content {
+        padding: 16px 0;
+        .text-input-wrap input {height: 32px; color: #666;}
+        textarea {
+            color: #666;
+        }
+    }
+    .selectbox {height: 30px; }
+    .col2 {
+        font-size: 0;
+        .selectbox {
+            width: 190px;
+            font-size: 14px;
+        }
+    }
+    .col1 {
+        .selectbox {
+            width: auto;
+            display: block;
+        }
+    }
+}
+.ui-select {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  background-color: #F6F6F6;
+  background-image: url(../css/img/selectarr.png);
+  background-image: -webkit-image-set(url(../css/img/selectarr.png) 1x, url(../css/img/selectarr@2x.png) 2x);
+  background-image: -moz-image-set(url(../css/img/selectarr.png) 1x, url(../css/img/selectarr@2x.png) 2x);
+  background-image: -ms-image-set(url(../css/img/selectarr.png) 1x, url(../css/img/selectarr@2x.png) 2x);
+  background-image: -o-image-set(url(../css/img/selectarr.png) 1x, url(../css/img/selectarr@2x.png) 2x);
+  background-image: image-set(url(../css/img/selectarr.png) 1x, url(../css/img/selectarr@2x.png) 2x);
+  background-repeat: no-repeat;
+  _background-image: url(../css/img/selectarr.png);
+  background-position: right 7px;
+  padding-right: 32px;
+  border: 1px solid #e6e6e6;
+  .ui-select-text {
+    display: block;
+    line-height: 30px;
+    vertical-align: middle;
+    height: 30px;
+    padding: 0 8px;
+    width: auto;
+    padding-right: 0;
+    color: #999;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    word-wrap:normal;
+    word-break: keep-all;
+    white-space: nowrap;
+    border-right: 1px solid #e6e6e6;
+  }
+}
+.ui-select-hover {
+    background-position: right -12px;
+    .ui-select-text {
+        color: #333;
+        /*border-right-color: #666;*/
+    }
+}
+.ui-select-options {
+    border: 1px solid #cacbcc;
+    box-shadow: 0 3px 3px #cacbcc;
+}
+.ui-select-options .ui-select-item {
+    line-height: 30px;
+    padding: 0 8px;
+    color: #323333;
+    font-size: 12px;
+}
+.ui-select-options .ui-select-item-hover, .ui-select-options .ui-select-item-focus {
+    background-color: #f0f0f0;
+}
+.text-input-wrap {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *height: 32px;
+  *overflow: hidden;
+  border: 1px solid #d9d9d9;
+  -webkit-transition: border-color ease-in-out 0.15s;
+  -moz-transition: border-color ease-in-out 0.15s;
+  -ms-transition: border-color ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s;
+  vertical-align: top;
+  color: #323333; }
+  .text-input-wrap input[type='text'],
+  .text-input-wrap input[type='password'],
+  .text-input-wrap input[type='email'],
+  .text-input-wrap input[type='tel'],
+  .text-input-wrap input[type='number'],
+  .text-input-wrap .textlike {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: 0;
+    text-indent: 10px;
+    *display: block;
+    color: #323333; }
+  .text-input-wrap .textlike {
+    display: block; }
+    .text-input-wrap .textlike a {
+      color: #323333;
+      text-decoration: none; }
+  .text-input-wrap.text-input-wrap-hover, .text-input-wrap:hover {
+    border-color: #b8b8b8; }
+    .text-input-wrap.text-input-wrap-hover input[type='text'],
+    .text-input-wrap.text-input-wrap-hover input[type='password'],
+    .text-input-wrap.text-input-wrap-hover input[type='email'],
+    .text-input-wrap.text-input-wrap-hover input[type='tel'],
+    .text-input-wrap.text-input-wrap-hover input[type='number'], .text-input-wrap:hover input[type='text'],
+    .text-input-wrap:hover input[type='password'],
+    .text-input-wrap:hover input[type='email'],
+    .text-input-wrap:hover input[type='tel'],
+    .text-input-wrap:hover input[type='number'] {
+      -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+      -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+      -ms-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+      -o-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+      box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset; }
+  .text-input-wrap.readonly {
+    border-color: #d9d9d9; }
+    .text-input-wrap.readonly input[type='text'],
+    .text-input-wrap.readonly input[type='password'],
+    .text-input-wrap.readonly input[type='email'],
+    .text-input-wrap.readonly input[type='tel'],
+    .text-input-wrap.readonly input[type='number'] {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none; }
+  .text-input-wrap.focus {
+    border-color: #2299ee; }
+
+.textarea-wrap {
+  border: 1px solid #d9d9d9;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top; }
+  .textarea-wrap .textarea-wrap-helper {
+    padding-right: 20px;
+    height: 100%; }
+  .textarea-wrap textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    resize: none;
+    outline: none; }
+  .textarea-wrap.focus {
+    border-color: #2299ee; }
+
+.text-input-wrap.error {
+  border-color: #ff4545; }
+.company_edit {
+    .title {
+        margin: 16px 0;
+    }
+    .tips_or_error {
+        color: #ff6612;
+        font-size: 12px;
+        line-height: 16px;
+        vertical-align: middle;
+        margin-left: 8px;
+        i, span {
+            vertical-align: middle;
+            line-height: 16px;
+        }
+        span {
+            padding-left: 4px;
+        }
+        &.hide {
+            display: none;
+        }
+    }
+    .submit-wrap {
+        text-align: right;
+    }
+    .tel-row {
+        margin-top: 16px;
+        &.first {
+            margin-top: 0;
+        }
+        .tel-wrap {width: 320px;}
+        .add-wrap {
+            vertical-align: middle;
+            line-height: 30px;
+            i {margin-right: 4px;}
+            i, span {
+                vertical-align: middle;
+            }
+        }
+    }
+    .short {
+        width: 320px;
+    }
+}

@@ -1,0 +1,7 @@
+{
+	"meta":{
+		"code":200,
+		"message":"查询成功"
+	},
+	"data":{"name":"北京今目标","dynamicCount":"212122","attentionCount":"200","area":"成都","hangye":"互联网","des":"今目标，意即“今天的工作目标”，是为企业和组织打造的一套目标管理软件。它不仅为企业和组织创造了一个专属的网络办公环境；更提供了一种可行可试的管理方式。","is_attention":true,"is_friend":false,"star":"2","company_id":"10"}
+}

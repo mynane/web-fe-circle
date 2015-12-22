@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="icon" type="image/x-icon" href="jingoal.ico" />
+    <title>企业动态_今目标企业圈</title>
+    <meta name="author" content="Jingoal" />
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="lib/ecui.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="ie-es5.js"></script>
+        <![endif]-->
+    <script type="text/javascript" src="lib/ecui.js"></script>
+    <script type="text/javascript" src="jingoal.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="login/sha.js"></script>
+    <script>
+    ecui.esr.DEFAULT_PAGE = 'dynamic';
+    var globalpath = location.protocol + "//" + location.host + "/web-fe-ecircle";
+    </script>
+</head>
+
+<body data-ecui="load:esr">
+    <div class="header" id="header">
+        <!--
+        <div class="header" id="header"></div>
+        <<< target:header  >>>
+        <div class="header-content clear-fix">
+            <div class="content-left layout-left text-white">
+                <a href="index.html" class="a-logo">
+                    <i class="logo icon-logo"></i><span class="logo-text">企业圈</span>
+                </a>
+                <ul class="header-list">
+                    <li class="header-li"><a id="title_dynamic" href="javascript:ecui.esr.redirect('dynamic')">企业动态</a></li>
+                    <li class="header-li"><a id="title_directory" href="#companyDirectory">企业名录</a></li>
+                    <li class="my-circle header-li">
+                        <a href="javascript:ecui.esr.redirect('company~id=my')" id="tocompany">我的企业圈</a>
+                        <i class="icon-select"></i>
+                        </a>  
+                        <ul>
+                            <li><a href="javascript:ecui.esr.redirect('company~id=my')">本企业信息</a></li>
+	                        <li><a id="attention" href="#my_attention">我关注的企业</a></li>
+                            <li><a id="friend" href="#my_friend">我的企业好友</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="my-info layout-right">
+                <div class="middle"></div>
+                <span class="avatar">
+                	<<<if:${userInfo.photo}>>>
+    				 <img class="img_middle" src="/ecircle/ecircle/v1/showphoto?userId=${userInfo.uid}"/>
+        			<<<else>>>
+       				 <img src="css/img/avatar24.png" class="max">
+       				 <<</if>>>
+                    </span>
+                <div class="vertical-middle login-name">
+                <span>您好,</span>
+                <div class="log-out">
+                    <span class="login-name">${userInfo.login_name}</span>
+                    <i class="icon-select"></i>
+                </div>
+                <span  style="display:none;" class="log-out-wrapper">
+                    <span class="log-out-btn">退出登录</span>
+                </span>
+                </div>
+                <a href="#mymessage" class="message-mail" id="mymessage">
+                    <i class="icon-message"></i>
+                    <span style="position:relative;left:-1px;">
+                        消息
+                        <i id="message-count" style="display:none;"></i>
+                    </span>                
+                </a>    
+            </div>
+        </div>
+
+        <<<target:comment>>>
+        <<< if:${nextPage}>0 >>>
+        <div style="padding-bottom:8px"><a class="text-gray other-comment" target="_blank">查看之前评论</a></div>        
+        <<<elif:${total}==0>>>
+        <div class="text-gray no-comment">还没有评论</div>
+        <<< else >>>
+        <<< /if >>>
+        <div class="comment-detail-list">
+            <<< for:${comments} as ${comment} >>>
+                <<<import:comment-item>>>
+            <<< /for >>>
+        </div>
+        <div class="clearfix comment-item post-comment">
+            <div class="comment-avatar">
+                <img src="/ecircle/ecircle/v1/showphoto?userId=${uid}" class="max">
+            </div>
+            <div class="comment-item-content" style="position:relative;">
+                <textarea class="editable comment-textarea" ></textarea><span class="placeholder comment-placeholder">我要评论</span>
+                <div class="clearfix post-foot" style="">
+                    <div class="layout-left" style="">
+                      <span class="date text-gray" style=""></span>
+                    </div>
+                    <div class="layout-right"> <span class="text-count text-gray">还可以输入<span class="text-count-num">150</span>个字</span>
+                        <button class="button-publish disabled" disabled="true">发表评论</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <<< target:comment-item>>>
+        <li class="clearfix comment-item" commentId="${comment.id}">
+                <div class="comment-avatar va-wrapper">
+                    <<<if:${comment.photo}>>>
+                    <div class="va"></div>
+                       <img class="img_middle" src="/ecircle/ecircle/v1/showphoto?userId=${comment.uid}"/>
+                    <<<else>>>
+                        <img src="css/img/avatar32.png" class="max vertical-middle">
+                    <<</if>>>
+                </div>
+                <div class="comment-item-content">
+                    <h4 style="margin:0;font-weight: 500;">${comment.user_name} <<< if:${comment.deleted} >>> <i class="icon-list-select"></i> <ul class="delete-oper"> <li class="delete-comment">删除评论</li> </ul> <<< /if >>> </h4>
+                    <p class="text-gray"><span class="comment-company-name">${comment.company_name}</span> - <span>${comment.add_time | publish-time}</span></p>
+                    <p class="text-dark-gray">${comment.content}</p>
+                </div>
+            </li>
+<<< target:company-info >>>
+<div class="dynamic-item">
+    <div class="company-logo ">
+        <a href="#company~id=${companyInfo.company_id}" target="_blank" class="va-wrapper">
+        <div class="va"></div>
+    	<<<if:${companyInfo.icon}== "true">>>
+    	<img  class="img_middle vertical-middle" src="/ecircle/ecircle/v1/show?companyId=${companyInfo.company_id}" />
+        <<<else>>>
+        <img src="css/img/logo32.png" class="max vertical-middle">
+        <<</if>>>
+        </a>
+    </div>
+    <h4 class="border company-title" >
+    <span title="${companyInfo.title}" class="company-title" >${companyInfo.title}</span>
+    ${star}
+    <<< if:${companyInfo.star}==2 >>>
+        <i class="icon-star"></i>
+        <<< /if >>></h4>
+    <ul class="company-follow clearfix">
+        <li>
+            <div class="border-gray">
+                <span>${companyInfo.dynamic_count|multile}</span>
+                <span class="text-gray">企业动态</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>${companyInfo.attention_count|multile}</span>
+                <span class="text-gray">关注者</span>
+            </div>
+        </li>
+    </ul>
+    <<< if:!${companyInfo.is_same_company}&&${companyInfo.group_type}!=1 >>>
+	     <h4 class="border company-title" ></h4>
+	     <ul class="company-follow clearfix">
+	     	<li>
+	            	<<< if:!${companyInfo.attention} >>>
+	            		<button  class="btn_oper_focus" ui="type:DirectoryOperate;oper:attention;company_id:${companyInfo.company_id};id:attention${companyInfo.company_id}">关注</button>
+	            	<<<else >>>
+	            		<button  class="btn_oper_focus bg_gray color_black" ui="type:DirectoryOperate;oper:attention;company_id:${companyInfo.company_id};id:attention${companyInfo.company_id}">取消关注</button>
+	            	<<</if >>>
+	        </li>
+	      </ul>
+	      <ul>
+	      	<li>
+	        		<<< if:${companyInfo.friend} >>>
+	       	 			<button class="btn_oper_add bg_white color_gray">已建立好友关系</button>
+	       			 <<< else >>>
+	    				<button class="btn_oper_add bg_gray color_blue" ui="type:DirectoryOperate;oper:add_friend;company_id:${companyInfo.company_id};id:addFriend${companyInfo.company_id}">加为友好企业</button>
+	        		<<< /if >>>
+	        </li>
+	      </ul>
+    <<< /if >>>
+    	<h4 class="border company-title" ></h4>
+</div>
+
+<<< target:confirm-dialog >>>
+<div class="dialog-shadow dialog-tip" ui="type:dialog;id:confirmDialog" style="display:none">
+    <label>系统提示</label>
+    <div class="dialog-body">
+        <div class="mar-left20">${content}</div>
+        <<< if:${warnMsg} >>>
+        <div class="mar-left20 mar-top8 gray"><i class="icon_warn"></i>${warnMsg}</div>
+        <<< /if >>>
+    </div>
+    <div class="dialog-footer">
+        <div class="pull-right">
+        <<< if: ${showClose} >>>
+            <button class="jmb_btn_default" ui="id:confirmCancel">关闭</button>
+        <<< else >>>
+            <button class="jmb_btn_default" ui="id:confirmCancel">取消</button>
+            <button class="jmb_btn_primary mar_left" ui="id:confirmOK">
+            <<< if:${submitText} >>>
+                ${submitText}
+            <<< else >>>
+                确定
+            <<< /if >>>
+            </button>
+        <<< /if >>>
+        </div>
+    </div>
+</div>
+
+<<< target:ecircleFloatInfo >>>
+<span class="float-logo-logo layout-left">
+    <a href="#company~id=${floatLogo.company_id}" target="_blank" class="float-avatar va-wrapper va-wrapper">
+        <div class="va"></div>
+        <<<if:${floatLogo.icon}>>>
+        <img  class="img_middle vertical-middle" src="${floatLogo.icon}" id="float-logo-avatar"/>
+        <<<else>>>
+        <img src="css/img/logo48.png" class="max vertical-middle">
+        <<</if>>>
+    </a>
+     <<<if:${floatLogo.star} === 2 >>>
+        <i class="icon-star"></i>
+     <<</if>>>
+   
+</span>
+<div class="float-logo-company-info">
+    <p id="float-company-name" class="float-company-name">
+    <a target="_blank" href="#company~id=${floatLogo.company_id}">${floatLogo.companyName}</a></p>
+    <p id="float-area" class="text-gray float-area">${floatLogo.first_name|hangye(${floatLogo.second_name},${floatLogo.province_name},${floatLogo.city_name})}</p>
+</div>
+<div class="float-content" id="float-content" title="${floatLogo.summary}">
+    ${floatLogo.summary|logoDetail}
+</div>
+<ul class="company-follow clearfix">
+    <li>
+        <div class="border-gray">
+            <span id="float-dynamic-count">${floatLogo.dynamicCount}</span>
+            <span class="text-gray">动态</span>
+        </div>
+    </li>
+    <li class="no-border">
+        <div>
+            <span id="float-dynamic-attention">${floatLogo.attentionCount}</span>
+            <span class="text-gray">关注者</span>
+        </div>
+    </li>
+</ul>
+<div class="float-oper">
+	<<< if:!${floatLogo.is_same_company}&&${floatLogo.group_type}!=1 >>>
+	    <<< if:!${floatLogo.attention} >>>
+	    <button class="bg_blue color_white" ui="type:DirectoryOperate;oper:attention;company_id:${floatLogo.company_id};id:1attention${floatLogo.company_id}">关注</button>
+	    <<< else >>>
+	    <button class="bg_gray color_gray" ui="type:DirectoryOperate;oper:attention;company_id:${floatLogo.company_id};id:1attention${floatLogo.company_id}">取消关注</button>
+	    <<< /if >>>
+	    <<< if:${floatLogo.friend} >>>
+	    <button class="friend bg_white color_gray">已建立好友关系</button>
+	    <<< else >>>
+	    <button class="friend bg_gray color_blue " ui="type:DirectoryOperate;oper:add_friend;company_id:${floatLogo.company_id};id:1addFriend${floatLogo.company_id}">加为友好企业</button>
+	    <<< /if >>>
+    <<< /if >>>
+</div>
+
+<<< target:senior-search >>>
+<div class="dialog-shadow searchDialog" ui="type:dialog;id:seniorSearchDialog" style="display:none">
+    <label>高级搜索</label>
+    <hr>
+    <div class="search_content">
+        <div class="search_body">
+            <div class="search_box"><i class="i icon_zoom"></i>
+                <input ui="id:seniorSearchInput" placeholder="请输入企业或服务关键字">
+            </div>
+            <hr>
+            <div ui="ext-esr:searchOption@seniorSearchOption"></div>
+            <hr>
+        </div>
+        <div class="search_footer">
+            <div class="right_btngrp">
+                <button class="cancel" ui="id:cancalSearch">返回</button>
+                <button class="submit" ui="id:submitSearch">搜索</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<<< target: actual_share_box >>>
+    -->
+    </div>
+    <div id="loading" class="loading top-tip text-warning">正在加载...</div>
+    <div class="content clearfix" id="content" style="display:none;">
+        <!-- 左侧 -->
+        <div id="left-section" class="left-section layout-left clearfix">
+
+        </div>
+        <!-- end左侧 -->
+        <!-- 右边推荐 -->
+        <div class="layout-right" style="width:232px">
+            <div class="recommend">
+            <div class="recommend-list dynamic-item" id="recommend-list">
+                
+            </div>
+            <div class="sponsor dynamic-item">
+                <a href="javascript:void(0)">
+                    <span class="ad-tips"><i class="i icon_tipsad"></i> <span>今目标 - 商机</span></span>
+                    <img src="statics/img/wareshow.jpg" alt="商机" width="232" height="232" />
+                </a>                
+            </div>
+            <div class="copyright">
+                <span class="copy">Copyright © <span class="b">iGoal.com</span> 2015</span>
+            </div>
+            </div>
+        </div>
+        <!-- end右边推荐 -->
+    </div>
+    <div class="boardset-dialog dialog-shadow" ui="type:dialog;id:remoteDynamicDialog" style="display:none">
+        <div class="modal-body">
+            <div class="modal-prompt modal-success">
+                <div class="mid_helper"></div>
+                <i class="mid_tip_icon"></i>
+                <div class="mid_text" ui="ext-esr:removeDynamicWarn">${removeDynamicWarn}</div>
+            </div>
+        </div>
+        <div class="modal-footer ">
+            <div class="modal-footer-content">
+                <div class="mid_helper"></div>
+                <div class="modal-submit mid_text modal_btn" id="yesBtn">确定</div>
+                <div class="modal-back mid_text modal_btn" id="noBtn">取消</div>
+            </div>
+        </div>
+    </div>
+    <!-- 加好友弹窗 -->
+    <div class="boardset-dialog dialog-shadow" ui="type:dialog;id:friendDialog" style="display:none">
+        <label>添加企业好友</label>
+        <div class="modal-body">
+            <div class="modal-prompt modal-success">
+                <div class="friend-name-area clearfix">
+                    <div class="layout_float_left friend-name" ui="ext-esr:friendCompanyName">${friendCompanyName}</div>
+                    <div class="layout_float_right friend-area" ui="ext-esr:friendCompanyAddress">${friendCompanyAddress}</div>
+                </div>
+                <div class="friend-message clearfix">
+                    <div class="layout_float_left friend-name">需要对方验证才能通过好友申请，请输入申请理由：</div>
+                    <div class="layout_float_right friend-area" ui="ext-esr:friendDialogTextNum;id:friendDialogTextNum">还可以输入<span class="count">60</span>个字</div>
+                </div>
+                <textarea class="friend-add-textarea" ui="id:addFriendTextarea" placeholder="为便于后续沟通，申请与贵公司成为友好企业。"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer ">
+            <div class="modal-footer-content">
+                <div class="mid_helper"></div>
+                <div class="modal-submit submit mid_text btn" ui="id:submitAddFriend">发送申请</div>
+                <div class="modal-back back mid_text btn" ui="id:cancelAddFriend">取消</div>
+            </div>
+        </div>
+    </div>
+    <!-- 滑过头像弹窗 -->
+    <div class="float-logo" id="float-logo" ui="ext-esr:floatLogo@ecircleFloatInfo">
+    </div>
+    <!-- end:滑过头像弹窗 -->
+    <!-- 重新登录relogin弹窗-->
+      <div class="dialog-shadow" ui="type:dialog;id:loginDialog" style="width: 400px; display: none">
+        <div class="modal-body">
+            <ul class="login-form">
+              <label id="loginError" style="margin-left:30px;color:red;display:none;">用户名或密码错误，请重新登录。</label>
+                <li class="login-item">
+                    <div class="input-wrap">
+                        <input id="loginName" type="text" placeholder="请输入今目标帐号" tabindex="1" />
+                    </div>
+                </li>
+                <li class="login-item">
+                    <div class="input-wrap">
+                        <input id="password" type="password" placeholder="请输入登录密码" tabindex="2" />
+                    </div>
+                </li>
+                <li class="login-item tip">还没有今目标帐号？<a target="_blank;" href="http://web.jingoal.com/module/register/index.open" tabindex="4">立即注册</a></li>
+            </ul>
+        </div>
+        <div class="login-footer">
+            <div class="mid_helper"></div>
+            <button class="resubmit" tabindex="3">登录</button>
+        </div>
+    </div>
+    <!-- 真实的分享按钮框 -->
+    <div class="bdsharebuttonbox" id="sharebuttonbox" data-tag="share_1" style="">
+        <a class="bds_sqq" data-cmd="sqq" href="javascript:void(0)"></a>
+        <a class="bds_tsina" data-cmd="tsina" href="javascript:void(0)"></a>
+        <a class="bds_weixin" data-cmd="weixin" href="javascript:void(0)"></a>
+        <a class="bds_qzone" data-cmd="qzone" href="javascript:void(0)"></a>
+        <a class="bds_fbook" data-cmd="fbook" href="javascript:void(0)"></a>
+        <a class="bds_twi" data-cmd="twi" href="javascript:void(0)"></a>
+    </div>
+</body>
+
+</html>

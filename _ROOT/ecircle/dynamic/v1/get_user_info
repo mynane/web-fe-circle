@@ -1,0 +1,7 @@
+{
+	"meta":{
+		"code":200,
+		"message":"查询成功"
+	},
+	"data":{"avator":"css/img/icon.png","name":"liuxiaopingpingpingping","company":"今目标"}
+}

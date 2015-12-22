@@ -1,0 +1,35 @@
+<!-- target:recommend-list -->
+<div class="recommend-title clearfix border">
+    <span class="layout-left">推荐企业</span>
+    <span class="layout-right text-gray refresh-recommend"  onclick="ecui.esr.callRoute('recommend')">
+        <i class="vertical-middle icon-refresh"></i>
+            换一批
+    </span>
+</div>
+<ul>
+<!-- for: ${recommendList} as ${item},${index} -->
+<!--if:${index}!=${recommendList}.length-1-->
+<li class="clearfix recommend-list-item border"  >
+<!--else-->
+<li class="clearfix recommend-list-item" data-cid="${item.company_id}" id="recommendList_lastcid">
+<!--/if-->
+    <span class="recommend-logo layout-left">
+    	<a href="#company~id=${item.company_id}" target="_blank" class="va-wrapper">
+    	<div class="va"></div>
+    	<!-- if:${item.icon} == "true"-->
+    	<img class="img_middle vertical-middle " src="/ecircle/ecircle/v1/show?companyId=${item.company_id}" /> 	   	
+        <!--else-->
+    	<img src="css/img/logo32.png" class="max vertical-middle">
+        <!--/if-->
+        </a>
+        <!-- if:${item.star}==2 -->
+        <i class="icon-star"></i>
+        <!-- /if -->
+    </span>
+    <div class="layout-left recommend-company-info">
+        <p title="${item.title}" class="recommend-company-name"><a href="#company~id=${item.company_id}" target="_blank">${item.title}</a></p>
+        <span title="${item.first_name|hangye(${item.second_name},${item.province_name},${item.city_name})}" class="recommend-company-area">${item.first_name|hangye(${item.second_name},${item.province_name},${item.city_name})}</span>
+    </div>
+</li>
+<!-- /for -->
+</ul>

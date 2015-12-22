@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="icon" type="image/x-icon" href="jingoal.ico" />
+    <title>今目标企业圈_结识企业伙伴 发现企业商机</title>
+    <meta name="author" content="Jingoal" />
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="lib/ecui.css" />
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="ie-es5.js"></script>
+        <![endif]-->
+    <script type="text/javascript" src="lib/ecui.js"></script>
+    <script type="text/javascript" src="jingoal.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="login/sha.js"></script>
+    <link rel="stylesheet" type="text/css" href="login/welcome.css" />
+    <script>
+    ecui.esr.DEFAULT_PAGE = 'dynamic';
+    var globalpath = location.protocol + "//" + location.host + "/web-fe-ecircle";
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="headers">
+            <div class="logo">
+                <i class="icon-logo"></i><span class="logo-text">企业圈</span>
+                <span id="login-info"></span>
+            </div>
+        </div>
+    </div>
+    <div id="home-pic">
+        <div class="home-pics">
+            <h2>结识企业伙伴，发现企业商机</h2>
+            <h3>Find business partner, Find business opportunity</h3>
+            <div class="home-login" id="login-input">
+                <input type="text" placeholder="请输入今目标帐号" class="input-user" id="loginName">
+                <input type="password" placeholder="请输入密码" class="input-pass" id="password">
+                <input type="submit" value="登录" class="input-login" id="login-button">
+                <input type="button" value="注册新用户" class="input-register" id="register-button">
+            </div>
+            <div class="home-wrap" id="loginInit" style="display:none;">
+                <a href="javascript:void(0);" class="a-one" id="init-button">完善企业信息</a>
+                <div class="login-line">或</div>
+                <a href="javascript:void(0);" class="a-one a-two" id="later-button">以后完善</a>
+            </div>
+            <div class="home-wrap" id="loginUse" style="display:none;">
+                <a href="javascript:void(0);" class="a-one" id="use-button">立即使用</a>
+            </div>
+            <div class="home-login-infor" id="error-tip" style="display:none;">
+                <i class="common-error-img"></i><span class="common-error-text">您的帐号或密码输入错误，请重新输入</span>
+            </div>
+        </div>
+    </div>
+    <div id="home-wrap">
+        <h4>我们能为你做的</h4>
+        <ul class="home-feature">
+            <li class="li-one">
+                <span class="feature-title">
+        <i></i>
+        <b>展示企业形象</b>Image
+      </span>
+                <span class="feature-description">
+        随时随地发布您的公司新闻、产品动态、<br>
+        营销活动，同时一键发布到国内各大社交<br>
+        媒体；企业宣传的喉舌，零距离和用户互动
+      </span>
+            </li>
+            <li class="li-two">
+                <span class="feature-title">
+        <i></i>
+        <b>寻找伙伴，建立关系</b>Relationship
+      </span>
+                <span class="feature-description">
+        有机会为近200万家企业用户提供产品和<br>
+        服务的同时，寻找本企业的合作伙伴，<br>
+        友好企业之间无缝沟通，项目进展尽在掌握
+      </span>
+            </li>
+            <li class="li-three">
+                <span class="feature-title">
+        <i></i>
+        <b>发现企业商机</b>Opportunities
+      </span>
+                <span class="feature-description">
+        无门槛，高回报! <br>
+        精准的企业服务推荐，<br>
+        企业圈让您的轻松坐拥一座商机金矿！
+      </span>
+            </li>
+        </ul>
+    </div>
+    <div id="home-footer">
+        Copyright &copy; <a href="javascript:void(0);">Jingoal.com</a> All Rights Reserved.2015 <a href="javascript:void(0);">京ICP证120422号</a> 京公海网安备110108001962号
+    </div>
+</body>
+<script>
+//登录完成，回调引导判断逻辑
+var initLoginState = function(data) {
+        var isFirstLogin = data.is_first_login;
+        var isAdmin = data.is_admin;
+        var isLogin = data.is_login;
+        if (isLogin) {
+            if (isFirstLogin) {
+                ecui.$('login-input').style.display = 'none';
+                if (isAdmin) {
+                    ecui.$('loginInit').style.display = 'block';
+                } else {
+                    ecui.$('loginUse').style.display = 'block';
+                }
+            } else {
+                var backUrl = decodeURIComponent(jingoal.cookie.get('ouri'));
+                if (backUrl != null) {
+                    backUrl = globalpath + "/index.html";
+                }
+                location.href = backUrl;
+            }
+            //ecui.$('login-info').innerHTML  = "您好，" + data.login_name;  
+        } else {
+            ecui.$("login-input").style.display = 'block';
+            ecui.$('login-info').innerHTML = "您好，请登录";
+        }
+    }
+    //插入首次登录
+var insertFirstLogin = function(url) {
+    jingoal.ajax('/ecircle/ecircle/v1/add_login_info', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        onsuccess: function(data) {
+            location.href = url;
+        }
+    });
+}
+
+//登录提交
+var submitLogin = function() {
+    var nowDate = new Date();
+    var password = ecui.$("password").value.trim();
+    var token = nowDate.getTime();
+    password = hex_sha1(hex_sha1(password) + token);
+    var loginName = ecui.$("loginName").value.trim();
+    var tip = ecui.$('error-tip');
+    if (password.length == 0 || loginName.length == 0) {
+        tip.style.display = 'block';
+        setTimeout(function() {
+            tip.style.display = 'none';
+        }, 3000)
+        return;
+    }
+    jingoal.ajax('/ecircle/ecircle/login', {
+        method: 'POST',
+        data: {
+            "password": password,
+            "loginName": loginName,
+            "token": token
+        },
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        onsuccess: function(data) {
+            var isLogin = data.is_login;
+            if (isLogin != true) {
+                ecui.$('error-tip').style.display = 'block';
+                setTimeout(function() {
+                    tip.style.display = 'none';
+                }, 3000)
+                return;
+            }
+            initLoginState(data);
+        }
+    });
+}
+
+window.onload = function() {
+    ecui.$("login-button").onclick = function() {
+        submitLogin();
+    };
+
+    ecui.$("init-button").onclick = function() {
+        insertFirstLogin(globalpath + "/index.html##company-edit");
+    };
+
+    ecui.$("later-button").onclick = function() {
+        insertFirstLogin(globalpath + "/index.html");
+    };
+
+    ecui.$("use-button").onclick = function() {
+        insertFirstLogin(globalpath + "/index.html");
+    };
+
+    ecui.$("register-button").onclick = function() {
+        window.open("http://web.jingoal.com/module/register/index.open");
+    };
+
+    ecui.$("password").onkeydown = function(e) {
+        if (e && (e.keyCode || e.which) == 13) {
+            submitLogin();
+        }
+    };
+    jingoal.LOGIN_ECIRCLE_SESSION = jingoal.cookie.get('ECIRCLESESSIONID');
+    if (!jingoal.LOGIN_ECIRCLE_SESSION) {
+        return;
+    }
+    jingoal.ajax('/ecircle/ecircle/v1/is_first_login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        onsuccess: function(data) {
+            initLoginState(data);
+        }
+    });
+}
+</script>
+
+</html>

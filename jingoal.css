@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*下来框*/
+/*
+图标样式
+*/
+/*按钮样式*/
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #979899;
+  font-size: 12px; }
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #979899;
+  font-size: 12px; }
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #979899;
+  font-size: 12px; }
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #979899;
+  font-size: 12px; }

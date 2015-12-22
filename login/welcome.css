@@ -1,0 +1,267 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+    margin: 0 auto;
+    background: #eee none repeat scroll 0 0;
+    color: #949799;
+}
+* {
+    font-family: "Helvetica Neue","Microsoft Yahei","微软雅黑","Tahoma";
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+div {
+	margin:auto;
+}
+.headers {
+    width: 960px;
+}
+#header {
+	background:rgba(0,0,0,.2);
+	opacity:1;
+    height: 48px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.logo {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    padding: 8px 0;
+}
+.icon-logo {
+    background-color: transparent;
+    background-position: 0 -224px;
+}
+.logo-text{
+   display: inline-block;   
+   color: #fff;
+   padding-left: 4px;
+}
+.common-error-img {
+    background-position: -48px -47px;
+    background-repeat: no-repeat;
+    height: 17px;
+    width: 17px;
+}
+.common-error-text {
+    color: #ff6612;  
+    padding-left:4px;
+}
+#home-pic {
+	clear:both;
+	height:600px;
+	background-image:url("imgs/header-bg.jpg");
+	background-position:0 center;
+	background-size:1920px;
+}
+.home-pics {
+	padding:128px;
+	width:960px;
+}
+.home-pics h2 {
+	font-family:"samTitleOne";
+	font-weight:lighter;
+	text-align:center;
+	color:#fff;
+	font-size:48px;
+}
+.home-pics h3 {
+	letter-spacing:1px;
+	font-weight:lighter;
+	font-size:24px;
+	line-height:80px;
+	text-align:center;
+	color:#fff;
+}
+	
+/******************************** 已登录 ********************************/
+
+.home-wrap {
+	padding:60px 0;
+	text-align:center;
+}
+.home-wrap a.a-one {
+	transition:.2s;
+	display:inline-block;
+	width:240px;
+	height:64px;
+	line-height:64px;
+	background:#29e;
+	color:#fff;
+	font-size:18px;
+	border-radius:2px;
+}
+.home-wrap a.a-one:hover {
+	background:#0a8ae6;
+	box-shadow:0 2px 4px rgba(0,0,0,.4);
+}
+.home-wrap a.a-one:active {
+	position:relative;
+	top:2px;
+}
+.home-wrap a.a-two {
+	border:1px #fff solid;
+	background:none;
+	box-sizing:border-box;
+}
+.home-wrap a.a-two:hover {
+	background:none;
+	color:#29e;
+}
+.login-line {
+	height:60px;
+	line-height:60px;
+	background:url("imgs/login-line.png") center no-repeat;
+	background-size:240px;
+}
+#home-wrap {
+	clear:both;
+	width:960px;
+}
+#home-wrap h4 {
+	text-align:center;
+	font-size:18px;
+	height:100px;
+	line-height:100px;
+	font-weight:lighter;
+	color:#666;
+	background:url("imgs/home-title.png") center 50px no-repeat;
+	background-size:660px;
+}
+.home-feature {
+	float:left;
+	margin:0 0 24px 0;
+}
+.home-feature li {
+	float:left;
+	width:302px;
+	height:340px;
+	text-align:center;
+	border:1px #ddd solid;
+	background:#fff;
+	border-radius:2px;
+}
+.home-feature li.li-two {
+	margin:0 24px;
+}
+.home-feature li .feature-title {
+	font-size:18px;
+	color:#29e;
+	line-height:32px;
+}
+.home-feature li .feature-title i {
+	display:block;
+	margin:40px auto 20px auto;
+	width:100px;
+	height:100px;
+	cursor: default;
+}
+.home-feature li.li-one .feature-title i {
+	background-position:0 -288px;
+}
+.home-feature li.li-two .feature-title i {
+	background-position:-112px -288px;
+}
+.home-feature li.li-three .feature-title i {
+	background-position:-224px -288px;
+}
+.home-feature li .feature-title b {
+	font-size:18px;
+	font-weight:lighter;
+	color:#333;
+	display:block;
+}
+.home-feature li .feature-description {
+	display:block;
+	padding:16px;
+	line-height:24px;
+}
+#home-footer {
+	clear:both;
+	margin:0 0 24px 0;
+	text-align:center;
+	height:80px;
+	line-height:80px;
+	background:#f5f5f5;
+}
+	
+/******************************** 未登录 ********************************/
+
+.home-login {
+	padding:120px 0 0 0;
+	text-align:center;
+}
+.home-login input {
+	transition:.2s;
+	margin:0 4px;
+	border:0;
+	border-radius:2px;
+	box-sizing:border-box;
+	font-size:14px;
+	height:48px;
+	line-height:48px;
+}
+.home-login input.input-user,
+.home-login input.input-pass {
+	width:240px;
+	color:#666;
+	padding:0 8px 0 44px;
+	background-image:url("imgs/CSS-Script-5.png");
+	background-repeat:no-repeat;
+	background-size:16px;
+}
+.home-login input.input-user {
+	background-position:16px 16px;
+}
+.home-login input.input-user:focus {
+	color:#29e;
+	background-position:16px -20px;
+}
+.home-login input.input-pass {
+	background-position:16px -57px;}
+.home-login input.input-pass:focus {
+	color:#29e;
+	background-position:16px -93px;
+}
+.home-login input.input-login {
+	width:120px;
+	background:#29e;
+	color:#fff;
+}
+.home-login input.input-login:hover {
+	background:#0a8ae6;
+	box-shadow:0 2px 4px rgba(0,0,0,.4);
+}
+.home-login input.input-login:active {
+	position:relative;
+	top:1px;
+}
+.home-login input.input-register {
+	width:120px;
+	background:none;
+	border:1px #fff solid;
+	color:#fff;
+}
+.home-login input.input-register:hover {
+	color:#29e;
+	box-shadow:0 2px 4px rgba(0,0,0,.4);
+}
+.home-login input.input-register:active {
+	position:relative;
+	top:1px;
+}
+.home-login-infor {
+	clear:both;
+	text-align:center;
+	padding:24px 0 0 0;
+}

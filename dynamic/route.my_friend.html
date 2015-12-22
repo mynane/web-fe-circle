@@ -1,0 +1,20 @@
+<!-- target:my_friend -->
+<div class="directory_list">
+    <div class="list_body">
+        <div class="list_title">我的企业好友</div>
+        <div class="list_content friend" ui="id:listContent">
+        	<div ui="ext-esr:dynamics@companyDirectoryList;"></div>
+        	<div ui="id:noFriend;" style="display:none" class="no_attention">
+                <i class="no_attention_face"></i>
+                <p class="p1">您还没有企业好友。</p>
+                <p>您可以在企业名录中，查找您感兴趣的企业，申请成为您的企业好友。</p>
+                <button ui="id:searchForFriend">立即查找</button>
+            </div>
+        </div>
+    </div>
+    <!-- if:${total}!=0 -->
+	<div id="friendPage"></div>
+	<!-- else -->
+    <div class="list_load_more no_more"><i class="i icon_face_bad"></i>没有更多</div>
+    <!-- /if -->
+</div>
